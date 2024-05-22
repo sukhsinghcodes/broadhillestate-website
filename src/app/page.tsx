@@ -18,16 +18,18 @@ export default function Home() {
       </div>
       <div className="relative z-10 w-[80vw] h-[600px] flex items-center">
         <div>
-          <H1 className="mb-4">Broadhill Estate</H1>
-          <H2 className="mb-12">
-            Residential, commercial, sales, lettings and property management
+          <H1 className="mb-4 drop-shadow-2xl">Broadhill Estate</H1>
+          <H2 className="mb-12 drop-shadow-2xl">
+            Residential, Commercial, Sales, Lettings and Property management
           </H2>
           <div className="flex gap-4 flex-wrap">
             <Link href="/search">
-              <Button size="lg">Find a property</Button>
+              <Button size="lg" className="drop-shadow-2xl">
+                Find a property
+              </Button>
             </Link>
             <Link href="/contact">
-              <Button variant="secondary" size="lg">
+              <Button variant="secondary" size="lg" className="drop-shadow-2xl">
                 Book a free valuation
               </Button>
             </Link>
