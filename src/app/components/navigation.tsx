@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { FacebookIcon, InstagramIcon, MenuIcon, SearchIcon } from 'lucide-react'
 import Link from 'next/link'
-import { use, useEffect } from 'react'
+import { use, useEffect, useState } from 'react'
 import { useIsMobile } from '../hooks/useIsMobile'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 
@@ -26,6 +26,7 @@ export function Navigation() {
   }, [])
 
   const isMobile = useIsMobile('md')
+  const [open, setOpen] = useState(false)
 
   return (
     <header className="main-nav-bar fixed z-50 top-0 w-full transition-all p-4 md:py-6 md:px-10">
@@ -38,9 +39,13 @@ export function Navigation() {
             <Button variant="ghost" size="icon">
               <SearchIcon />
             </Button>
-            <Sheet>
+            <Sheet open={open} onOpenChange={(toggle) => setOpen(toggle)}>
               <SheetTrigger>
-                <Button variant="ghost" size="icon">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setOpen((prev) => !prev)}
+                >
                   <MenuIcon />
                 </Button>
               </SheetTrigger>
@@ -48,17 +53,23 @@ export function Navigation() {
                 <ul className="flex flex-col gap-2">
                   <li>
                     <Link href="/search">
-                      <Button variant="ghost">Rent</Button>
+                      <Button variant="ghost" onClick={() => setOpen(false)}>
+                        Rent
+                      </Button>
                     </Link>
                   </li>
                   <li>
                     <Link href="/search">
-                      <Button variant="ghost">Buy</Button>
+                      <Button variant="ghost" onClick={() => setOpen(false)}>
+                        Buy
+                      </Button>
                     </Link>
                   </li>
                   <li>
                     <Link href="/contact">
-                      <Button variant="ghost">Contact</Button>
+                      <Button variant="ghost" onClick={() => setOpen(false)}>
+                        Contact
+                      </Button>
                     </Link>
                   </li>
                   <li>
@@ -66,7 +77,11 @@ export function Navigation() {
                       href="https://www.instagram.com/broadhillestate/"
                       target="_blank"
                     >
-                      <Button variant="ghost" size="icon">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => setOpen(false)}
+                      >
                         <InstagramIcon className="stroke-1" />
                       </Button>
                     </Link>
@@ -76,7 +91,11 @@ export function Navigation() {
                       href="https://www.facebook.com/broadhillestate"
                       target="_blank"
                     >
-                      <Button variant="ghost" size="icon">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => setOpen(false)}
+                      >
                         <FacebookIcon className="stroke-1" />
                       </Button>
                     </Link>
