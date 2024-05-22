@@ -7,10 +7,13 @@
   --background-rgb: 0, 0, 0;
 }
 
-
+html,
 body {
+  scroll-behavior: smooth;
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+  margin: 0;
+  padding: 0;
 }
 
 @layer utilities {
