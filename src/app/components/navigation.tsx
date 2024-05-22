@@ -52,6 +52,13 @@ export function Navigation() {
               <SheetContent>
                 <ul className="flex flex-col gap-2">
                   <li>
+                    <Link href="/">
+                      <Button variant="ghost" onClick={() => setOpen(false)}>
+                        Home
+                      </Button>
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/search">
                       <Button variant="ghost" onClick={() => setOpen(false)}>
                         Rent
