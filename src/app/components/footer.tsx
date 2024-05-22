@@ -2,9 +2,10 @@ import logoSrc from '../assets/images/bh-logo.svg'
 import rmLogoSrc from '../assets/images/RM_Logo_NoStrap_White.png'
 import Image from 'next/image'
 import { Copyright } from './copyright'
-import { MailIcon, PhoneIcon } from 'lucide-react'
+import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon } from 'lucide-react'
 import Link from 'next/link'
 import { H4 } from './typography'
+import { Button } from '@/components/ui/button'
 
 export function Footer() {
   return (
@@ -43,7 +44,7 @@ export function Footer() {
           </p>
         </div>
         <div className="text-center sm:text-left">
-          <H4 className="mb-1">Get in touch</H4>
+          <H4 className="mb-2">Get in touch</H4>
           <div className="flex flex-col gap-2 items-center sm:items-start">
             <div className="flex gap-2 items-center">
               <label>
@@ -75,6 +76,21 @@ export function Footer() {
         <Link href="https://www.rightmove.co.uk/estate-agents/agent/Broadhill/Ilford-82863.html">
           <Image className="w-[140px]" src={rmLogoSrc} alt="Rightmove" />
         </Link>
+        <div className="flex gap-4">
+          <Link
+            href="https://www.instagram.com/broadhillestate/"
+            target="_blank"
+          >
+            <Button variant="ghost" size="icon">
+              <InstagramIcon className="stroke-1" />
+            </Button>
+          </Link>
+          <Link href="https://www.facebook.com/broadhillestate" target="_blank">
+            <Button variant="ghost" size="icon">
+              <FacebookIcon className="stroke-1" />
+            </Button>
+          </Link>
+        </div>
       </div>
     </footer>
   )
