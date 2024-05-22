@@ -4,14 +4,16 @@ import { Button } from '@/components/ui/button'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 pt-0">
-      <Image
-        className="z-0 saturate-50 brightness-50 select-none pointer-events-none"
-        src={bgImage}
-        alt="St Pauls Cathedral"
-        layout="fill"
-        objectFit="cover"
-      />
+    <div>
+      <div className="z-0 absolute w-full h-full top-0 left-0 overflow-hidden">
+        <Image
+          className="saturate-50 brightness-50 select-none pointer-events-none"
+          src={bgImage}
+          alt="St Pauls Cathedral"
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
       <div className="relative z-10 w-[80vw] h-[600px] flex items-center">
         <div>
           <h1 className="text-6xl mb-4">Broadhill Estate</h1>
@@ -23,6 +25,6 @@ export default function Home() {
           </Button>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
