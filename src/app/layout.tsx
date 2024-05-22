@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={cn(inter.className, 'min-h-screen flex flex-col')}>
         <Navigation />
-        <main className="flex flex-col grow p-4 md:p-24">{children}</main>
+        <main className="flex flex-col grow p-4 pt-20 md:p-24">{children}</main>
         <Footer />
       </body>
     </html>

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import bgImage from '@/app/assets/images/st-pauls-bg.jpg'
 import { Button } from '@/components/ui/button'
 import { H1, H2 } from './components/typography'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -18,12 +19,19 @@ export default function Home() {
       <div className="relative z-10 w-[80vw] h-[600px] flex items-center">
         <div>
           <H1 className="mb-4">Broadhill Estate</H1>
-          <H2 className="mb-6">
+          <H2 className="mb-12">
             Residential, commercial, sales, lettings and property management
           </H2>
-          <Button variant="default" className="uppercase">
-            Book a free valuation
-          </Button>
+          <div className="flex gap-4 flex-wrap">
+            <Link href="/search">
+              <Button size="lg">Find a property</Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="secondary" size="lg">
+                Book a free valuation
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
