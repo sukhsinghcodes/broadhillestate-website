@@ -1,3 +1,5 @@
+import { H1 } from '../components/typography'
+
 export default function Contact() {
-  return <h1 className="text-2xl">Contact</h1>
+  return <H1>Contact</H1>
 }

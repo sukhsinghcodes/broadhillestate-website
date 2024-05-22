@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Copyright } from './copyright'
 import { MailIcon, PhoneIcon } from 'lucide-react'
 import Link from 'next/link'
+import { H4 } from './typography'
 
 export function Footer() {
   return (
@@ -16,7 +17,7 @@ export function Footer() {
           <Copyright />
         </div>
         <div className="text-center sm:text-left">
-          <h4 className="mb-1">Head office</h4>
+          <H4 className="mb-1">Head office</H4>
           <p className="text-sm text-neutral-300 leading-6">
             4 Old Park Lane
             <br />
@@ -29,7 +30,7 @@ export function Footer() {
           </p>
         </div>
         <div className="text-center sm:text-left">
-          <h4 className="mb-1">East London office</h4>
+          <H4 className="mb-1">East London office</H4>
           <p className="text-sm text-neutral-300 leading-6">
             2 Roding Lane South
             <br />
@@ -42,7 +43,7 @@ export function Footer() {
           </p>
         </div>
         <div className="text-center sm:text-left">
-          <h4 className="mb-1">Get in touch</h4>
+          <H4 className="mb-1">Get in touch</H4>
           <div className="flex flex-col gap-2 items-center sm:items-start">
             <div className="flex gap-2 items-center">
               <label>
@@ -70,7 +71,7 @@ export function Footer() {
         </div>
       </div>
       <div className="flex flex-col gap-4 items-center sm:items-start">
-        <h4 className="text-neutral-300">Find us on</h4>
+        <H4 className="text-neutral-300">Find us on</H4>
         <Link href="https://www.rightmove.co.uk/estate-agents/agent/Broadhill/Ilford-82863.html">
           <Image className="w-[140px]" src={rmLogoSrc} alt="Rightmove" />
         </Link>

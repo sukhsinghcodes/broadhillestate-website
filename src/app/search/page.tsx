@@ -1,3 +1,5 @@
+import { H1 } from '../components/typography'
+
 export default function Search() {
-  return <h1 className="text-2xl">Search</h1>
+  return <H1>Search</H1>
 }

@@ -1,3 +1,5 @@
+import { H1 } from '../components/typography'
+
 export default function About() {
-  return <h1 className="text-2xl">About</h1>
+  return <H1>About</H1>
 }

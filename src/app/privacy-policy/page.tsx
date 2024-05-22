@@ -1,3 +1,5 @@
+import { H1 } from '../components/typography'
+
 export default function PrivacyPolicy() {
-  return <h1 className="text-2xl">Privacy policy</h1>
+  return <H1>Privacy policy</H1>
 }
