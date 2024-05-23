@@ -25,9 +25,9 @@ export default function Search() {
 
   return (
     <div className="flex flex-col gap-8 items-center">
-      <div className="flex gap-2 flex-wrap items-center">
+      <div className="flex flex-col md:flex-row gap-2 flex-wrap items-stretch md:items-center md:justify-center w-full">
         <Input
-          className="w-[200px]"
+          className="w-full md:w-[200px]"
           placeholder="Location"
           type="text"
           value={location}
@@ -39,7 +39,7 @@ export default function Search() {
             setTransactionType(value as TransactionType)
           }
         >
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-full md:w-[180px]">
             <SelectValue placeholder="Sales / Lettings" />
           </SelectTrigger>
           <SelectContent>
@@ -53,7 +53,7 @@ export default function Search() {
           </SelectContent>
         </Select>
         <Select value={minBeds} onValueChange={setMinBeds}>
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-full md:w-[180px]">
             <SelectValue placeholder="Min Beds" />
           </SelectTrigger>
           <SelectContent>
@@ -70,7 +70,7 @@ export default function Search() {
           value={propertyType}
           onValueChange={(value) => setPropertyType(value as PropertyType)}
         >
-          <SelectTrigger className="w-[180px]">
+          <SelectTrigger className="w-full md:w-[180px]">
             <SelectValue placeholder="Property Type" />
           </SelectTrigger>
           <SelectContent>

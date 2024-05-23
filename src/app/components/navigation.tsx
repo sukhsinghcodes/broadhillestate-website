@@ -8,7 +8,9 @@ import { useIsMobile } from '../hooks/useIsMobile'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { usePathname } from 'next/navigation'
 
-function toggleClass(el: Element) {
+function toggleClass(el: Element | null) {
+  if (!el) return
+
   if (window.scrollY > 10) {
     el.classList.add('bg-black')
   } else {
@@ -21,16 +23,19 @@ export function Navigation() {
 
   useEffect(() => {
     const navBar = document.querySelector('.main-nav-bar')
-    if (!navBar) return
+
+    function listener() {
+      toggleClass(navBar)
+    }
 
     if (pathname !== '/') {
+      window.removeEventListener('scroll', listener)
+      if (!navBar) return
       navBar.classList.add('bg-black')
       return
     }
 
-    window.addEventListener('scroll', () => {
-      toggleClass(navBar)
-    })
+    window.addEventListener('scroll', listener)
 
     toggleClass(navBar)
   }, [pathname])

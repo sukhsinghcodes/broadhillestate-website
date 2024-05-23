@@ -27,7 +27,7 @@ export function AvailabilityFilter({
 }: AvailabilityFilterProps) {
   return (
     <Select value={value} onValueChange={onValueChange}>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-full md:w-[180px]">
         <SelectValue placeholder="Availability Filter" />
       </SelectTrigger>
       <SelectContent>
