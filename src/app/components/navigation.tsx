@@ -3,33 +3,43 @@
 import { Button } from '@/components/ui/button'
 import { FacebookIcon, InstagramIcon, MenuIcon, SearchIcon } from 'lucide-react'
 import Link from 'next/link'
-import { use, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useIsMobile } from '../hooks/useIsMobile'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { usePathname } from 'next/navigation'
+
+function toggleClass(el: Element) {
+  if (window.scrollY > 10) {
+    el.classList.add('bg-black')
+  } else {
+    el.classList.remove('bg-black')
+  }
+}
 
 export function Navigation() {
+  const pathname = usePathname()
+
   useEffect(() => {
     const navBar = document.querySelector('.main-nav-bar')
     if (!navBar) return
 
+    if (pathname !== '/') {
+      navBar.classList.add('bg-black')
+      return
+    }
+
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
-        navBar.classList.add('bg-black')
-      } else {
-        navBar.classList.remove('bg-black')
-      }
+      toggleClass(navBar)
     })
 
-    if (window.scrollY > 10) {
-      navBar.classList.add('bg-black')
-    }
-  }, [])
+    toggleClass(navBar)
+  }, [pathname])
 
   const isMobile = useIsMobile('md')
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="main-nav-bar fixed z-50 top-0 w-full transition-all p-4 md:py-6 md:px-10">
+    <header className="main-nav-bar fixed z-50 top-0 w-full transition-all p-4 md:py-6 md:px-10 bg-black">
       <nav className="flex justify-between items-center gap-8">
         <Link href="/" className="text-2xl">
           Broadhill Estate
@@ -40,7 +50,7 @@ export function Navigation() {
               <SearchIcon />
             </Button>
             <Sheet open={open} onOpenChange={(toggle) => setOpen(toggle)}>
-              <SheetTrigger>
+              <SheetTrigger asChild>
                 <Button
                   variant="ghost"
                   size="icon"
