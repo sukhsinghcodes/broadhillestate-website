@@ -65,7 +65,7 @@ export function Navigation() {
                 </Button>
               </SheetTrigger>
               <SheetContent>
-                <ul className="flex flex-col gap-2">
+                <ul className="flex flex-col gap-2 list-none m-0 [&>li]:m-0">
                   <li>
                     <Link href="/">
                       <Button variant="ghost" onClick={() => setOpen(false)}>
@@ -127,7 +127,7 @@ export function Navigation() {
             </Sheet>
           </div>
         ) : (
-          <ul className="flex flex-wrap space-x-8 items-center">
+          <ul className="flex flex-wrap space-x-8 items-center list-none m-0 [&>li]:m-0">
             <li>
               <Link href="/search">
                 <Button variant="ghost" size="icon">

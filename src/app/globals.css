@@ -74,3 +74,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+ul {
+  @apply list-disc;
+  @apply my-6;
+  @apply ml-6;
+  @apply [&>li]:mt-2;
+  @apply [&>li>ul]:list-decimal;
+}
