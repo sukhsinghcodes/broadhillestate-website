@@ -1,12 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { PropertyType, TransactionType } from '../types'
 import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
+  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
@@ -20,13 +21,18 @@ import {
   minPricesSales,
 } from './data'
 import { pound } from '../utils'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { SelectResetButton } from '../components/select-reset-button'
 
 export default function Search() {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+
   const [location, setLocation] = useState<string>('')
   const [transactionType, setTransactionType] = useState<TransactionType>(
     TransactionType.Sales
   )
-  const [propertyType, setPropertyType] = useState<PropertyType | ''>('')
+  const [propertyType, setPropertyType] = useState<PropertyType | string>('')
   const [minPrice, setMinPrice] = useState<string>('')
   const [maxPrice, setMaxPrice] = useState<string>('')
   const [minBeds, setMinBeds] = useState<string>('')
@@ -36,6 +42,47 @@ export default function Search() {
 
   const minPriceOptions = isSales ? minPricesSales : minPricesLettings
   const maxPriceOptions = isSales ? maxPricesSales : maxPricesLettings
+
+  const handleSearch = useCallback(() => {
+    const params = new URLSearchParams()
+    if (location) params.set('location', location)
+    if (transactionType) params.set('transactionType', transactionType)
+    if (propertyType) params.set('propertyType', propertyType)
+    if (minPrice) params.set('minPrice', minPrice)
+    if (maxPrice) params.set('maxPrice', maxPrice)
+    if (minBeds) params.set('minBeds', minBeds)
+    if (availabilityFilter) params.set('availabilityFilter', availabilityFilter)
+    router.push('/search?' + params.toString())
+  }, [
+    availabilityFilter,
+    location,
+    maxPrice,
+    minBeds,
+    minPrice,
+    propertyType,
+    router,
+    transactionType,
+  ])
+
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams)
+    const values = {
+      location: params.get('location') || '',
+      transactionType: params.get('transactionType') || TransactionType.Sales,
+      propertyType: params.get('propertyType') || '',
+      minPrice: params.get('minPrice') || '',
+      maxPrice: params.get('maxPrice') || '',
+      minBeds: params.get('minBeds') || '',
+      availabilityFilter: params.get('availabilityFilter') || '',
+    }
+    setLocation(values.location)
+    setTransactionType(values.transactionType as TransactionType)
+    setPropertyType(values.propertyType)
+    setMinPrice(values.minPrice)
+    setMaxPrice(values.maxPrice)
+    setMinBeds(values.minBeds)
+    setAvailabilityFilter(values.availabilityFilter)
+  }, [searchParams])
 
   return (
     <div className="flex flex-col gap-8 items-center">
@@ -79,6 +126,8 @@ export default function Search() {
                 </SelectItem>
               ))}
             </SelectGroup>
+            <SelectSeparator />
+            <SelectResetButton setFn={setMinPrice} />
           </SelectContent>
         </Select>
         <Select value={maxPrice} onValueChange={setMaxPrice}>
@@ -94,6 +143,8 @@ export default function Search() {
                 </SelectItem>
               ))}
             </SelectGroup>
+            <SelectSeparator />
+            <SelectResetButton setFn={setMaxPrice} />
           </SelectContent>
         </Select>
         <Select value={minBeds} onValueChange={setMinBeds}>
@@ -108,6 +159,8 @@ export default function Search() {
               <SelectItem value="4">4</SelectItem>
               <SelectItem value="5">5</SelectItem>
             </SelectGroup>
+            <SelectSeparator />
+            <SelectResetButton setFn={setMinBeds} />
           </SelectContent>
         </Select>
         <Select
@@ -125,6 +178,8 @@ export default function Search() {
                 </SelectItem>
               ))}
             </SelectGroup>
+            <SelectSeparator />
+            <SelectResetButton setFn={setPropertyType} />
           </SelectContent>
         </Select>
         <AvailabilityFilter
@@ -132,7 +187,9 @@ export default function Search() {
           onValueChange={setAvailabilityFilter}
           transactionType={transactionType}
         />
-        <Button size="sm">Search</Button>
+        <Button size="sm" onClick={handleSearch}>
+          Search
+        </Button>
       </div>
     </div>
   )

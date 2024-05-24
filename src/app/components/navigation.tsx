@@ -74,14 +74,14 @@ export function Navigation() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/search">
+                    <Link href="/search?transactionType=Lettings">
                       <Button variant="ghost" onClick={() => setOpen(false)}>
                         Rent
                       </Button>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/search">
+                    <Link href="/search?transactionType=Sales">
                       <Button variant="ghost" onClick={() => setOpen(false)}>
                         Buy
                       </Button>
@@ -136,12 +136,12 @@ export function Navigation() {
               </Link>
             </li>
             <li>
-              <Link href="/search?">
+              <Link href="/search?transactionType=Lettings">
                 <Button variant="ghost">Rent</Button>
               </Link>
             </li>
             <li>
-              <Link href="/search?">
+              <Link href="/search?transactionType=Sales">
                 {' '}
                 <Button variant="ghost">Buy</Button>
               </Link>

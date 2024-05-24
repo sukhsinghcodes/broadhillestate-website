@@ -3,6 +3,7 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
+  SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
@@ -13,6 +14,7 @@ import {
   SalesStatusLabels,
   TransactionType,
 } from '../types'
+import { SelectResetButton } from '../components/select-reset-button'
 
 export type AvailabilityFilterProps = {
   transactionType: TransactionType
@@ -44,6 +46,8 @@ export function AvailabilityFilter({
             </SelectItem>
           ))}
         </SelectGroup>
+        <SelectSeparator />
+        <SelectResetButton setFn={onValueChange} />
       </SelectContent>
     </Select>
   )
