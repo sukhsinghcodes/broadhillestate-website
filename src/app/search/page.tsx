@@ -13,6 +13,13 @@ import {
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { AvailabilityFilter } from './availability-filter'
+import {
+  maxPricesLettings,
+  maxPricesSales,
+  minPricesLettings,
+  minPricesSales,
+} from './data'
+import { pound } from '../utils'
 
 export default function Search() {
   const [location, setLocation] = useState<string>('')
@@ -20,8 +27,15 @@ export default function Search() {
     TransactionType.Sales
   )
   const [propertyType, setPropertyType] = useState<PropertyType | ''>('')
+  const [minPrice, setMinPrice] = useState<string>('')
+  const [maxPrice, setMaxPrice] = useState<string>('')
   const [minBeds, setMinBeds] = useState<string>('')
   const [availabilityFilter, setAvailabilityFilter] = useState<string>('')
+
+  const isSales = transactionType === TransactionType.Sales
+
+  const minPriceOptions = isSales ? minPricesSales : minPricesLettings
+  const maxPriceOptions = isSales ? maxPricesSales : maxPricesLettings
 
   return (
     <div className="flex flex-col gap-8 items-center">
@@ -47,6 +61,36 @@ export default function Search() {
               {Object.values(TransactionType).map((item) => (
                 <SelectItem key={item} value={item}>
                   {item}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+        <Select value={minPrice} onValueChange={setMinPrice}>
+          <SelectTrigger className="w-full md:w-[180px]">
+            <SelectValue placeholder="Min Price £" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              {minPriceOptions.map((item) => (
+                <SelectItem key={item} value={item.toString()}>
+                  {pound.format(item)}
+                  {!isSales && ' PCM'}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+        <Select value={maxPrice} onValueChange={setMaxPrice}>
+          <SelectTrigger className="w-full md:w-[180px]">
+            <SelectValue placeholder="Max Price £" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              {maxPriceOptions.map((item) => (
+                <SelectItem key={item} value={item.toString()}>
+                  {pound.format(item)}
+                  {!isSales && ' PCM'}
                 </SelectItem>
               ))}
             </SelectGroup>

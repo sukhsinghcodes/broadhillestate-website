@@ -26,7 +26,7 @@ export default function Home() {
           </H2>
           <div className="flex gap-4 flex-wrap">
             <Link href="/search">
-              <Button size="lg" className=" drop-shadow-md md:drop-shadow-2xl">
+              <Button size="lg" className="drop-shadow-md md:drop-shadow-2xl">
                 Find a property
               </Button>
             </Link>
