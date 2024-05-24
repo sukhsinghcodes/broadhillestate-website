@@ -16,30 +16,23 @@ export enum TransactionType {
   Lettings = 'Lettings',
 }
 
-export enum SalesStatus {
-  ForSale = 'ForSale',
-  Sold = 'Sold',
-  SoldSTC = 'SoldSTC',
+export enum PropertyStatus {
+  Available = 'Available',
+  Unavailable = 'Unavailable',
+  PendingCompletion = 'PendingCompletion',
   UnderOffer = 'UnderOffer',
 }
 
 export const SalesStatusLabels = {
-  [SalesStatus.ForSale]: 'For Sale',
-  [SalesStatus.Sold]: 'Sold',
-  [SalesStatus.SoldSTC]: 'Sold STC',
-  [SalesStatus.UnderOffer]: 'Under Offer',
-}
-
-export enum LettingsStatus {
-  Let = 'Let',
-  LetAgreed = 'LetAgreed',
-  ToLet = 'ToLet',
-  UnderOffer = 'UnderOffer',
+  [PropertyStatus.Available]: 'For Sale',
+  [PropertyStatus.Unavailable]: 'Sold',
+  [PropertyStatus.PendingCompletion]: 'Sold STC',
+  [PropertyStatus.UnderOffer]: 'Under Offer',
 }
 
 export const LettingsStatusLabels = {
-  [LettingsStatus.Let]: 'Let',
-  [LettingsStatus.LetAgreed]: 'Let Agreed',
-  [LettingsStatus.ToLet]: 'To Let',
-  [LettingsStatus.UnderOffer]: 'Under Offer',
+  [PropertyStatus.Available]: 'To Let',
+  [PropertyStatus.Unavailable]: 'Let',
+  [PropertyStatus.PendingCompletion]: 'Let Agreed',
+  [PropertyStatus.UnderOffer]: 'Under Offer',
 }

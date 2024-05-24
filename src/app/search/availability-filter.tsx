@@ -8,9 +8,8 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import {
-  LettingsStatus,
   LettingsStatusLabels,
-  SalesStatus,
+  PropertyStatus,
   SalesStatusLabels,
   TransactionType,
 } from '../types'
@@ -34,15 +33,11 @@ export function AvailabilityFilter({
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          {Object.values(
-            transactionType === TransactionType.Sales
-              ? SalesStatus
-              : LettingsStatus
-          ).map((item) => (
+          {Object.values(PropertyStatus).map((item) => (
             <SelectItem key={item} value={item}>
               {transactionType === TransactionType.Sales
-                ? SalesStatusLabels[item as SalesStatus]
-                : LettingsStatusLabels[item as LettingsStatus]}
+                ? SalesStatusLabels[item as PropertyStatus]
+                : LettingsStatusLabels[item as PropertyStatus]}
             </SelectItem>
           ))}
         </SelectGroup>
