@@ -1,0 +1,1119 @@
+{
+  "contentTypes": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "v28v01dihsjv"
+          }
+        },
+        "id": "property",
+        "type": "ContentType",
+        "createdAt": "2024-05-24T11:44:40.499Z",
+        "updatedAt": "2024-05-24T12:04:02.724Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2024-05-24T12:04:02.724Z",
+        "firstPublishedAt": "2024-05-24T11:44:40.859Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/v28v01dihsjv/environments/master/content_types/property"
+      },
+      "displayField": "name",
+      "name": "Property",
+      "description": "",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "numberOfBedrooms",
+          "name": "Number of Bedrooms",
+          "type": "Integer",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "range": {
+                "min": 1
+              },
+              "message": "Property should have at least 1 bedroom"
+            }
+          ],
+          "defaultValue": {
+            "en-GB": 1
+          },
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "numberOfBathrooms",
+          "name": "Number of Bathrooms",
+          "type": "Integer",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "defaultValue": {
+            "en-GB": 1
+          },
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "numberOfReceptions",
+          "name": "Number of Receptions",
+          "type": "Integer",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "defaultValue": {
+            "en-GB": 1
+          },
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "price",
+          "name": "Price",
+          "type": "Number",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "transactionType",
+          "name": "Transaction Type",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "in": [
+                "Sales",
+                "Lettings"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "propertyType",
+          "name": "Property Type",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "in": [
+                "House",
+                "Apartment",
+                "Commercial"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "status",
+          "name": "Status",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "in": [
+                "Available",
+                "Unavailable",
+                "PendingCompletion",
+                "UnderOffer"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "RichText",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline"
+              ],
+              "message": "Only bold, italic, and underline marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-1",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            },
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "features",
+          "name": "Features",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+            ]
+          }
+        },
+        {
+          "id": "location",
+          "name": "Location",
+          "type": "Location",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "gallery",
+          "name": "Gallery",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkMimetypeGroup": [
+                  "image"
+                ]
+              }
+            ],
+            "linkType": "Asset"
+          }
+        },
+        {
+          "id": "floorplan",
+          "name": "Floorplan",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+            ],
+            "linkType": "Asset"
+          }
+        },
+        {
+          "id": "epc",
+          "name": "EPC",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Asset"
+        }
+      ]
+    }
+  ],
+  "tags": [
+  ],
+  "editorInterfaces": [
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "v28v01dihsjv",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 8,
+        "createdAt": "2024-05-24T11:44:41.061Z",
+        "createdBy": {
+          "sys": {
+            "id": "6AS63e5X5cTJUxpiPQQW90",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2024-05-24T12:04:03.458Z",
+        "updatedBy": {
+          "sys": {
+            "id": "6AS63e5X5cTJUxpiPQQW90",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "property",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "settings": {
+            "helpText": "Enter the name/title of the Property"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "numberOfBedrooms",
+          "widgetId": "numberEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "numberOfBathrooms",
+          "widgetId": "numberEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "numberOfReceptions",
+          "widgetId": "numberEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "price",
+          "widgetId": "numberEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "transactionType",
+          "widgetId": "radio",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "propertyType",
+          "widgetId": "dropdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "status",
+          "settings": {
+            "helpText": "  Available = For Sale/To Let, Unavailable = Sold/Let, PendingCompletion = Sold STC/Let Agreed, UnderOffer = Under Offer"
+          },
+          "widgetId": "dropdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "description",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "features",
+          "widgetId": "tagEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "location",
+          "widgetId": "locationEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "gallery",
+          "widgetId": "assetGalleryEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "floorplan",
+          "widgetId": "assetGalleryEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "epc",
+          "widgetId": "assetLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "v28v01dihsjv"
+          }
+        },
+        "id": "3kFAkxbvsJt8Lyiof1vvIB",
+        "type": "Entry",
+        "createdAt": "2024-05-24T11:46:41.298Z",
+        "updatedAt": "2024-05-27T05:35:26.773Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 15,
+        "publishedAt": "2024-05-27T05:35:26.773Z",
+        "firstPublishedAt": "2024-05-27T05:35:26.773Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 16,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "automationTags": [
+        ],
+        "fieldStatus": {
+          "*": {
+            "en-GB": "published"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "property"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/v28v01dihsjv/environments/master/entries/3kFAkxbvsJt8Lyiof1vvIB"
+      },
+      "fields": {
+        "name": {
+          "en-GB": "Legacy Tower, Stratford, E15"
+        },
+        "numberOfBedrooms": {
+          "en-GB": 3
+        },
+        "numberOfBathrooms": {
+          "en-GB": 1
+        },
+        "numberOfReceptions": {
+          "en-GB": 1
+        },
+        "price": {
+          "en-GB": 300000
+        },
+        "transactionType": {
+          "en-GB": "Sales"
+        },
+        "propertyType": {
+          "en-GB": "Apartment"
+        },
+        "status": {
+          "en-GB": "Available"
+        },
+        "description": {
+          "en-GB": {
+            "data": {
+            },
+            "content": [
+              {
+                "data": {
+                },
+                "content": [
+                  {
+                    "data": {
+                    },
+                    "marks": [
+                    ],
+                    "value": "Set on the 18th Floor of the Stunning Legacy Tower Development, moments away from Stratford Westfield & Train Station, this Three-Bedroom Apartment offers fantastic views of the City, with a large private balcony and floor-to-ceiling windows.\n\nThe building offers a 24 hour concierge service as well as a private resident's gym for your ultimate convenience.\n\nTenure: Leasehold (240 years)",
+                    "nodeType": "text"
+                  }
+                ],
+                "nodeType": "paragraph"
+              }
+            ],
+            "nodeType": "document"
+          }
+        },
+        "features": {
+          "en-GB": [
+            "Balcony",
+            "Double Bedrooms",
+            "Gym",
+            "24 hr concierge"
+          ]
+        },
+        "location": {
+          "en-GB": {
+            "lon": -0.00103,
+            "lat": 51.54263
+          }
+        },
+        "gallery": {
+          "en-GB": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "7AEUd6SBV5xBRUxSWiGXgQ"
+              }
+            },
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "6kGBLg2z7T0db5WYiSwmAP"
+              }
+            }
+          ]
+        },
+        "floorplan": {
+          "en-GB": [
+            {
+              "sys": {
+                "type": "Link",
+                "linkType": "Asset",
+                "id": "alLBiOopuUpqtPPA6iaPP"
+              }
+            }
+          ]
+        },
+        "epc": {
+          "en-GB": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Asset",
+              "id": "4SMBwPWGGKmdSh4PU9AsUW"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "v28v01dihsjv"
+          }
+        },
+        "id": "7AEUd6SBV5xBRUxSWiGXgQ",
+        "type": "Asset",
+        "createdAt": "2024-05-27T05:32:35.792Z",
+        "updatedAt": "2024-05-27T05:33:19.261Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2024-05-27T05:33:19.261Z",
+        "firstPublishedAt": "2024-05-27T05:33:19.261Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/v28v01dihsjv/environments/master/assets/7AEUd6SBV5xBRUxSWiGXgQ"
+      },
+      "fields": {
+        "title": {
+          "en-GB": "legcay tower 1"
+        },
+        "description": {
+          "en-GB": ""
+        },
+        "file": {
+          "en-GB": {
+            "url": "//images.ctfassets.net/v28v01dihsjv/7AEUd6SBV5xBRUxSWiGXgQ/ce65320be16356756dd5d6e831dce955/WhatsApp_Image_2024-04-12_at_16.39.40_b0f1c432.jpg",
+            "details": {
+              "size": 637085,
+              "image": {
+                "width": 2500,
+                "height": 1406
+              }
+            },
+            "fileName": "WhatsApp+Image+2024-04-12+at+16.39.40_b0f1c432.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "v28v01dihsjv"
+          }
+        },
+        "id": "6kGBLg2z7T0db5WYiSwmAP",
+        "type": "Asset",
+        "createdAt": "2024-05-27T05:33:34.381Z",
+        "updatedAt": "2024-05-27T05:33:51.505Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2024-05-27T05:33:51.505Z",
+        "firstPublishedAt": "2024-05-27T05:33:51.505Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/v28v01dihsjv/environments/master/assets/6kGBLg2z7T0db5WYiSwmAP"
+      },
+      "fields": {
+        "title": {
+          "en-GB": "legacy tower 2"
+        },
+        "description": {
+          "en-GB": ""
+        },
+        "file": {
+          "en-GB": {
+            "url": "//images.ctfassets.net/v28v01dihsjv/6kGBLg2z7T0db5WYiSwmAP/bc6e3dea2a9f2a18da0c7ba8dc4c9f7a/WhatsApp_Image_2024-04-12_at_16.39.40_9bc190f0.jpg",
+            "details": {
+              "size": 298668,
+              "image": {
+                "width": 1000,
+                "height": 1778
+              }
+            },
+            "fileName": "WhatsApp+Image+2024-04-12+at+16.39.40_9bc190f0.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "v28v01dihsjv"
+          }
+        },
+        "id": "alLBiOopuUpqtPPA6iaPP",
+        "type": "Asset",
+        "createdAt": "2024-05-27T05:34:38.483Z",
+        "updatedAt": "2024-05-27T05:34:56.640Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2024-05-27T05:34:56.640Z",
+        "firstPublishedAt": "2024-05-27T05:34:56.640Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/v28v01dihsjv/environments/master/assets/alLBiOopuUpqtPPA6iaPP"
+      },
+      "fields": {
+        "title": {
+          "en-GB": "legacy tower floor plan"
+        },
+        "description": {
+          "en-GB": ""
+        },
+        "file": {
+          "en-GB": {
+            "url": "//images.ctfassets.net/v28v01dihsjv/alLBiOopuUpqtPPA6iaPP/a2f905af0f415c9eb95fc5057606bf77/floor-plan.jpg",
+            "details": {
+              "size": 105680,
+              "image": {
+                "width": 848,
+                "height": 1200
+              }
+            },
+            "fileName": "floor-plan.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    },
+    {
+      "metadata": {
+        "tags": [
+        ]
+      },
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "v28v01dihsjv"
+          }
+        },
+        "id": "4SMBwPWGGKmdSh4PU9AsUW",
+        "type": "Asset",
+        "createdAt": "2024-05-27T05:35:06.421Z",
+        "updatedAt": "2024-05-27T05:35:19.685Z",
+        "environment": {
+          "sys": {
+            "id": "master",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 4,
+        "publishedAt": "2024-05-27T05:35:19.685Z",
+        "firstPublishedAt": "2024-05-27T05:35:19.685Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 5,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "urn": "crn:contentful:::content:spaces/v28v01dihsjv/environments/master/assets/4SMBwPWGGKmdSh4PU9AsUW"
+      },
+      "fields": {
+        "title": {
+          "en-GB": "legacy tower epc"
+        },
+        "description": {
+          "en-GB": ""
+        },
+        "file": {
+          "en-GB": {
+            "url": "//images.ctfassets.net/v28v01dihsjv/4SMBwPWGGKmdSh4PU9AsUW/a2fbed09203e3d8fdd95d12f3a5d5c33/epc.jpg",
+            "details": {
+              "size": 82124,
+              "image": {
+                "width": 552,
+                "height": 613
+              }
+            },
+            "fileName": "epc.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      }
+    }
+  ],
+  "locales": [
+    {
+      "name": "U.K. English",
+      "code": "en-GB",
+      "fallbackCode": null,
+      "default": true,
+      "contentManagementApi": true,
+      "contentDeliveryApi": true,
+      "optional": false,
+      "sys": {
+        "type": "Locale",
+        "id": "7zjgeY2fBab9kBcdKq67Ba",
+        "version": 0,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "v28v01dihsjv"
+          }
+        },
+        "environment": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "master",
+            "uuid": "f33e9184-c17c-4c9f-ac73-e1ace22efcea"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "createdAt": "2017-01-26T18:34:18Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "updatedAt": "2017-01-26T18:34:18Z"
+      }
+    }
+  ],
+  "webhooks": [
+  ],
+  "roles": [
+    {
+      "name": "Developer",
+      "description": "Allows reading Entries and managing API Keys",
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": [
+            "read"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": [
+            "read"
+          ],
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "permissions": {
+        "ContentModel": [
+          "read"
+        ],
+        "Settings": [
+        ],
+        "ContentDelivery": "all",
+        "Environments": [
+        ],
+        "EnvironmentAliases": [
+        ],
+        "Tags": [
+        ]
+      },
+      "sys": {
+        "type": "Role",
+        "id": "7zljt1iOjnETc3eSILzGPO",
+        "version": 0,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "v28v01dihsjv"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "createdAt": "2017-01-26T18:34:18Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "updatedAt": "2017-01-26T18:34:18Z"
+      }
+    },
+    {
+      "name": "Editor",
+      "description": "Allows editing, publishing and archiving of content",
+      "policies": [
+        {
+          "effect": "allow",
+          "actions": "all",
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Entry"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "effect": "allow",
+          "actions": "all",
+          "constraint": {
+            "and": [
+              {
+                "equals": [
+                  {
+                    "doc": "sys.type"
+                  },
+                  "Asset"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "permissions": {
+        "ContentModel": [
+          "read"
+        ],
+        "Settings": [
+        ],
+        "ContentDelivery": [
+        ],
+        "Environments": [
+        ],
+        "EnvironmentAliases": [
+        ],
+        "Tags": [
+        ]
+      },
+      "sys": {
+        "type": "Role",
+        "id": "7znqM7bmPxU2HhfqIsi3SY",
+        "version": 0,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "v28v01dihsjv"
+          }
+        },
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "createdAt": "2017-01-26T18:34:18Z",
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "6AS63e5X5cTJUxpiPQQW90"
+          }
+        },
+        "updatedAt": "2017-01-26T18:34:18Z"
+      }
+    }
+  ]
+}
