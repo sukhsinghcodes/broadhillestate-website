@@ -4,6 +4,7 @@ import './globals.css'
 import { Navigation } from './components/navigation'
 import { Footer } from './components/footer'
 import { cn } from '@/lib/utils'
+import Providers from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,11 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={cn(inter.className, 'min-h-screen flex flex-col')}>
-        <Navigation />
-        <main className="flex flex-col grow p-4 pt-20 md:p-24 md:pt-32 bg-neutral-800">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <Navigation />
+          <main className="flex flex-col grow p-4 pt-20 md:p-24 md:pt-32 bg-neutral-800">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )

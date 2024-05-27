@@ -23,6 +23,9 @@ import {
 import { pound } from '../utils'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { SelectResetButton } from '../components/select-reset-button'
+import { usePropertiesSearch } from './queries'
+import { Spinner } from '../components/spinner'
+import { H4 } from '../components/typography'
 
 export function Search() {
   const searchParams = useSearchParams()
@@ -37,6 +40,7 @@ export function Search() {
   const [maxPrice, setMaxPrice] = useState<string>('')
   const [minBeds, setMinBeds] = useState<string>('')
   const [availabilityFilter, setAvailabilityFilter] = useState<string>('')
+  const [filterParams, setFilterParams] = useState<string>('')
 
   const isSales = transactionType === TransactionType.Sales
 
@@ -53,6 +57,7 @@ export function Search() {
     if (minBeds) params.set('minBeds', minBeds)
     if (availabilityFilter) params.set('availabilityFilter', availabilityFilter)
     router.push('/search?' + params.toString())
+    setFilterParams(params.toString())
   }, [
     availabilityFilter,
     location,
@@ -83,6 +88,8 @@ export function Search() {
     setMinBeds(values.minBeds)
     setAvailabilityFilter(values.availabilityFilter)
   }, [searchParams])
+
+  const { data, isLoading, error } = usePropertiesSearch(filterParams)
 
   return (
     <div className="flex flex-col gap-8 items-center">
@@ -191,6 +198,12 @@ export function Search() {
           Search
         </Button>
       </div>
+      {isLoading && <Spinner />}
+      {data && data.length > 0 ? (
+        data.map((item) => <div key={item.name}>{item.name}</div>)
+      ) : (
+        <H4>No results</H4>
+      )}
     </div>
   )
 }

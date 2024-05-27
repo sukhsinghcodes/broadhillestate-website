@@ -55,12 +55,7 @@ export async function GET(request: Request) {
       ...query,
     })
 
-    console.log(
-      'properties',
-      properties.items.map((item) => item.sys.id)
-    )
-
-    return Response.json(properties)
+    return Response.json(properties.items.map((item) => item.fields))
   } catch (err) {
     console.error('error', err)
     return Response.json({ error: err }, { status: 500 })
