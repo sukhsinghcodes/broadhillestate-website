@@ -42,35 +42,35 @@ export function PropertyListItem({
         }`}</h4>
         <div className="text-sm">{documentToReactComponents(description)}</div>
         <div className="flex justify-between gap-4 pt-3">
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
             <Badge variant="secondary" className="uppercase">
               {getAvailabilityLabel(
                 transactionType as TransactionType,
                 status as PropertyStatus
               )}
             </Badge>
-            <div className="flex gap-2">
-              <HomeIcon size={20} />
+            <div className="flex gap-2 items-center">
+              <HomeIcon className="text-neutral-300 stroke-1" size={20} />
               <div className="">{propertyType}</div>
             </div>
           </div>
-          <div className="flex gap-4">
-            <div className="flex gap-2">
+          <div className="flex gap-4 items-center">
+            <div className="flex gap-2 items-center">
               <div className="">{numberOfBedrooms}</div>
               <div>
-                <BedIcon size={20} />
+                <BedIcon className="text-neutral-300 stroke-1" size={20} />
               </div>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center">
               <div className="">{numberOfReceptions}</div>
               <div>
-                <SofaIcon size={20} />
+                <SofaIcon className="text-neutral-300 stroke-1" size={20} />
               </div>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center">
               <div className="">{numberOfBathrooms}</div>
               <div>
-                <BathIcon size={20} />
+                <BathIcon className="text-neutral-300 stroke-1" size={20} />
               </div>
             </div>
           </div>
