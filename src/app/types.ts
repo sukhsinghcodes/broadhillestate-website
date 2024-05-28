@@ -1,3 +1,5 @@
+import { TypePropertyFields } from './generated-types'
+
 export enum PropertyType {
   House = 'House',
   Apartment = 'Apartment',
@@ -37,19 +39,6 @@ export const LettingsStatusLabels = {
   [PropertyStatus.UnderOffer]: 'Under Offer',
 }
 
-export type Property = {
-  name: string
-  numberOfBedrooms: number
-  numberOfBathrooms: number
-  numberOfReceptions: number
-  price: number
-  transactionType: TransactionType
-  propertyType: PropertyType
-  status: PropertyStatus
-  description: string
-  features: string[]
-  location: string
-  gallery: string[]
-  floorplan: string[]
-  epc: string
+export type Property = TypePropertyFields & {
+  id: string
 }

@@ -51,11 +51,14 @@ export async function GET(request: Request) {
         'fields.status',
         'fields.price',
         'fields.location',
+        'fields.gallery',
       ],
       ...query,
     })
 
-    return Response.json(properties.items.map((item) => item.fields))
+    return Response.json(
+      properties.items.map((item) => ({ id: item.sys.id, ...item.fields }))
+    )
   } catch (err) {
     console.error('error', err)
     return Response.json({ error: err }, { status: 500 })

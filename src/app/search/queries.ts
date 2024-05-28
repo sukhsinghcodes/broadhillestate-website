@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
-import { TypePropertyFields } from '../generated-types'
+import { Property } from '../types'
 
 export function usePropertiesSearch(filterParams: string) {
-  return useQuery<TypePropertyFields[]>({
+  return useQuery<Property[]>({
     queryKey: ['property-search', filterParams],
     queryFn: async () => {
       const response = await fetch(`/api/properties?${filterParams}`)

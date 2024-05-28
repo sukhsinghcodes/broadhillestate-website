@@ -17,7 +17,7 @@ export function H2({ children, className }: TypographyProps) {
 
 export function H3({ children, className }: TypographyProps) {
   return (
-    <h3 className={cn('text-lg md:text-xl font-bold mt-4', className)}>
+    <h3 className={cn('text-lg md:text-2xl font-bold mt-4', className)}>
       {children}
     </h3>
   )

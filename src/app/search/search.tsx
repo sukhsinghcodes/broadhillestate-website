@@ -26,6 +26,7 @@ import { SelectResetButton } from '../components/select-reset-button'
 import { usePropertiesSearch } from './queries'
 import { Spinner } from '../components/spinner'
 import { H4 } from '../components/typography'
+import { PropertyListItem } from './property-list-item'
 
 export function Search() {
   const searchParams = useSearchParams()
@@ -198,9 +199,10 @@ export function Search() {
           Search
         </Button>
       </div>
-      {isLoading && <Spinner />}
-      {data && data.length > 0 ? (
-        data.map((item) => <div key={item.name}>{item.name}</div>)
+      {isLoading ? (
+        <Spinner />
+      ) : data && data.length > 0 ? (
+        data.map((item) => <PropertyListItem key={item.name} property={item} />)
       ) : (
         <H4>No results</H4>
       )}
