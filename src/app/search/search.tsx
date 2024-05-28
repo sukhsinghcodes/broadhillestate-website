@@ -93,7 +93,7 @@ export function Search() {
   const { data, isLoading, error } = usePropertiesSearch(filterParams)
 
   return (
-    <div className="flex flex-col gap-8 items-center">
+    <div className="flex flex-col gap-8 items-center max-w-screen-2xl">
       <div className="flex flex-col md:flex-row gap-2 flex-wrap items-stretch md:items-center md:justify-center w-full">
         <Input
           className="w-full md:w-[200px]"
