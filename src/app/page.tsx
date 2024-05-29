@@ -18,7 +18,7 @@ export default function Home() {
       </div>
       <div className="relative z-10 w-[80vw] h-[600px] flex items-center">
         <div>
-          <H1 className="mb-4 drop-shadow-md md:drop-shadow-2xl">
+          <H1 className="text-4xl md:text-6xl mb-4 drop-shadow-md md:drop-shadow-2xl">
             Broadhill Estate
           </H1>
           <H2 className="mb-12 drop-shadow-md md:drop-shadow-2xl">
