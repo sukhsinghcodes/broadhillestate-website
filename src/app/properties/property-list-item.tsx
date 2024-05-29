@@ -27,8 +27,8 @@ export function PropertyListItem({
   },
 }: PropertyListItemProps) {
   return (
-    <Link href={`/properties/${id}/${getSlug(name)}`}>
-      <div className="w-full flex flex-col md:flex-row bg-neutral-600 shadow-xl">
+    <Link className="w-full" href={`/properties/${id}/${getSlug(name)}`}>
+      <div className="w-full flex flex-col md:flex-row bg-neutral-700 shadow-xl">
         <div className="md:basis-1/4">
           <Image
             src={`https:${gallery?.[0].fields.file?.url?.toString()}?fit=thumb&f=top_left&w=500&h=300`}
@@ -44,7 +44,10 @@ export function PropertyListItem({
             transactionType === TransactionType.Lettings ? ' PCM' : ''
           }`}</h4>
           <div className="text-sm">
-            {documentToReactComponents(description)}
+            {documentToReactComponents(description, {
+              renderText: (text) =>
+                text.length > 150 ? `${text.slice(0, 150)}...` : text,
+            })}
           </div>
           <div className="flex justify-between gap-4 pt-3">
             <div className="flex gap-4 items-center">

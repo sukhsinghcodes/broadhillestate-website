@@ -30,8 +30,8 @@ export function Property({ id }: PropertyProps) {
   return (
     <>
       <div className="w-full">Gallery Hero</div>
-      <div className="flex gap-8 w-full max-w-screen-2xl">
-        <div className="basis-2/3 flex flex-col gap-12">
+      <div className="flex flex-col md:flex-row gap-8 w-full max-w-screen-2xl">
+        <div className="basis-full md:basis-2/3 flex flex-col gap-12">
           <div className="flex flex-col gap-4">
             <H1>{data.name}</H1>
             <H3 className="text-neutral-200">
@@ -42,7 +42,7 @@ export function Property({ id }: PropertyProps) {
               )}
             </H3>
             <H2 className="text-neutral-400">{pound.format(data.price)}</H2>
-            <div className="flex gap-6 items-center">
+            <div className="flex flex-col md:flex-row gap-6 md:items-center">
               <div className="flex gap-2 items-center">
                 <div>
                   <BedIcon className="text-neutral-300 stroke-1" size={20} />
@@ -83,7 +83,7 @@ export function Property({ id }: PropertyProps) {
             </div>
           </div>
         </div>
-        <div className="basis-1/3">Side panel</div>
+        <div className="basis-full md:basis-1/3">Side panel</div>
       </div>
     </>
   )
