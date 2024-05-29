@@ -28,7 +28,7 @@ import { Spinner } from '../components/spinner'
 import { H4 } from '../components/typography'
 import { PropertyListItem } from './property-list-item'
 
-export function Search() {
+export function Properties() {
   const searchParams = useSearchParams()
   const router = useRouter()
 
@@ -57,7 +57,7 @@ export function Search() {
     if (maxPrice) params.set('maxPrice', maxPrice)
     if (minBeds) params.set('minBeds', minBeds)
     if (availabilityFilter) params.set('availabilityFilter', availabilityFilter)
-    router.push('/search?' + params.toString())
+    router.push('/properties?' + params.toString())
     setFilterParams(params.toString())
   }, [
     availabilityFilter,

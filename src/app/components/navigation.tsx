@@ -74,14 +74,14 @@ export function Navigation() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/search?transactionType=Lettings">
+                    <Link href="/properties?transactionType=Lettings">
                       <Button variant="ghost" onClick={() => setOpen(false)}>
                         Rent
                       </Button>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/search?transactionType=Sales">
+                    <Link href="/properties?transactionType=Sales">
                       <Button variant="ghost" onClick={() => setOpen(false)}>
                         Buy
                       </Button>
@@ -129,19 +129,19 @@ export function Navigation() {
         ) : (
           <ul className="flex flex-wrap space-x-8 items-center list-none m-0 [&>li]:m-0">
             <li>
-              <Link href="/search">
+              <Link href="/properties">
                 <Button variant="ghost" size="icon">
                   <SearchIcon />
                 </Button>
               </Link>
             </li>
             <li>
-              <Link href="/search?transactionType=Lettings">
+              <Link href="/properties?transactionType=Lettings">
                 <Button variant="ghost">Rent</Button>
               </Link>
             </li>
             <li>
-              <Link href="/search?transactionType=Sales">
+              <Link href="/properties?transactionType=Sales">
                 {' '}
                 <Button variant="ghost">Buy</Button>
               </Link>

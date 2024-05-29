@@ -1,13 +1,13 @@
 'use client'
 
 import { Suspense } from 'react'
-import { Search } from './search'
+import { Properties } from './properties'
 import { H2 } from '../components/typography'
 
-export default function SearchPage() {
+export default function PropertiesPage() {
   return (
     <Suspense fallback={<H2>Page failed to load.</H2>}>
-      <Search />
+      <Properties />
     </Suspense>
   )
 }

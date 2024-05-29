@@ -25,7 +25,7 @@ export default function Home() {
             Residential, Commercial, Sales, Lettings and Property management
           </H2>
           <div className="flex gap-4 flex-wrap">
-            <Link href="/search">
+            <Link href="/properties">
               <Button size="lg" className="drop-shadow-md md:drop-shadow-2xl">
                 Find a property
               </Button>

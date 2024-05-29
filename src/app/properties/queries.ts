@@ -10,3 +10,13 @@ export function usePropertiesSearch(filterParams: string) {
     },
   })
 }
+
+export function useProperty(id: string) {
+  return useQuery<Property>({
+    queryKey: ['property', id],
+    queryFn: async () => {
+      const response = await fetch(`/api/property?id=${id}`)
+      return response.json()
+    },
+  })
+}

@@ -22,3 +22,13 @@ export function getAvailabilityLabel(
     return LettingsStatusLabels[status]
   }
 }
+
+export function getSlug(input: string) {
+  // Remove punctuation marks
+  const noPunctuation = input.replace(/[^\w\s]|_/g, '').replace(/\s+/g, ' ')
+  // Convert to lowercase
+  const lowercased = noPunctuation.toLowerCase()
+  // Replace spaces with hyphens
+  const hyphenated = lowercased.replace(/\s+/g, '-')
+  return hyphenated
+}
