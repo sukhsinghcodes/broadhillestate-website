@@ -1,11 +1,18 @@
 'use client'
 
-import { H1, H2, H3, H4 } from '@/app/components/typography'
+import { H1, H2, H3 } from '@/app/components/typography'
 import { useProperty } from '../queries'
 import { Spinner } from '@/app/components/spinner'
 import { getAvailabilityLabel, pound } from '@/app/utils'
 import { PropertyStatus, TransactionType } from '@/app/types'
-import { BedIcon, SofaIcon, BathIcon } from 'lucide-react'
+import {
+  BedIcon,
+  SofaIcon,
+  BathIcon,
+  RulerIcon,
+  BarChart2Icon,
+  ImageIcon,
+} from 'lucide-react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import {
   Carousel,
@@ -16,6 +23,8 @@ import {
 } from '@/components/ui/carousel'
 import Image from 'next/image'
 import { ContactCard } from '@/app/components/contact-card'
+import { Button } from '@/components/ui/button'
+import { Gallery } from '@/app/components/gallery'
 
 export type PropertyProps = {
   id: string
@@ -42,13 +51,13 @@ export function Property({ id }: PropertyProps) {
 
   return (
     <>
-      <div className="w-full">
+      <div className="w-full relative">
         <Carousel
           opts={{
             align: 'start',
             loop: true,
           }}
-          className="w-full "
+          className="w-full"
         >
           <CarouselContent>
             {data.gallery?.map((image) => (
@@ -58,7 +67,7 @@ export function Property({ id }: PropertyProps) {
               >
                 <Image
                   src={`https:${image.fields.file?.url?.toString()}?fit=thumb&w=1000&h=600`}
-                  alt={`${image.fields.title} featured`}
+                  alt={`${image.fields.title}`}
                   width={1000}
                   height={600}
                   className="w-full h-full object-cover"
@@ -69,6 +78,34 @@ export function Property({ id }: PropertyProps) {
           <CarouselPrevious />
           <CarouselNext />
         </Carousel>
+        <div className="flex gap-4 items-center absolute bottom-4 left-4">
+          <Gallery
+            Trigger={
+              <Button className="shadow shadow-black/40" variant="secondary">
+                <RulerIcon className="mr-2" /> Floor Plan
+              </Button>
+            }
+            images={data.floorplan || []}
+          />
+          <Gallery
+            Trigger={
+              <Button className="shadow shadow-black/40" variant="secondary">
+                <BarChart2Icon className="mr-2" /> EPC
+              </Button>
+            }
+            images={data.epc ? [data.epc] : []}
+          />
+        </div>
+        <div className="flex gap-4 items-center absolute bottom-4 right-4">
+          <Gallery
+            Trigger={
+              <Button className="shadow shadow-black/40" variant="secondary">
+                <ImageIcon className="mr-2" /> View gallery
+              </Button>
+            }
+            images={data.gallery || []}
+          />
+        </div>
       </div>
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-screen-2xl p-4 md:py-12">
         <div className="basis-full md:basis-2/3 flex flex-col gap-12">
