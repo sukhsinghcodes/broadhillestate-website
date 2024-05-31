@@ -3,7 +3,7 @@ import { H1, H2, H3 } from '../components/typography'
 
 export default function PrivacyPolicy() {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 p-4 md:p-8">
       <H1 className="mb-4">Privacy &amp; GDPR Policy</H1>
       <p>
         Our website uses cookies. Your acceptance of these terms by using this

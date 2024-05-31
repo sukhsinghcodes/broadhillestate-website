@@ -7,6 +7,15 @@ import { getAvailabilityLabel, pound } from '@/app/utils'
 import { PropertyStatus, TransactionType } from '@/app/types'
 import { BedIcon, SofaIcon, BathIcon } from 'lucide-react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from '@/components/ui/carousel'
+import Image from 'next/image'
+import { ContactCard } from '@/app/components/contact-card'
 
 export type PropertyProps = {
   id: string
@@ -20,7 +29,11 @@ export function Property({ id }: PropertyProps) {
   }
 
   if (isLoading) {
-    return <Spinner />
+    return (
+      <div className="absolute z-50 top-0 left-0 w-full h-full flex justify-center items-center pb-48">
+        <Spinner />
+      </div>
+    )
   }
 
   if (!data) {
@@ -29,8 +42,35 @@ export function Property({ id }: PropertyProps) {
 
   return (
     <>
-      <div className="w-full">Gallery Hero</div>
-      <div className="flex flex-col md:flex-row gap-8 w-full max-w-screen-2xl">
+      <div className="w-full">
+        <Carousel
+          opts={{
+            align: 'start',
+            loop: true,
+          }}
+          className="w-full "
+        >
+          <CarouselContent>
+            {data.gallery?.map((image) => (
+              <CarouselItem
+                key={image.sys.id}
+                className="md:basis-1/2 h-[300px] md:h-[600px] p-0"
+              >
+                <Image
+                  src={`https:${image.fields.file?.url?.toString()}?fit=thumb&w=1000&h=600`}
+                  alt={`${image.fields.title} featured`}
+                  width={1000}
+                  height={600}
+                  className="w-full h-full object-cover"
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
+      <div className="flex flex-col md:flex-row gap-8 w-full max-w-screen-2xl p-4 md:py-12">
         <div className="basis-full md:basis-2/3 flex flex-col gap-12">
           <div className="flex flex-col gap-4">
             <H1>{data.name}</H1>
@@ -83,7 +123,9 @@ export function Property({ id }: PropertyProps) {
             </div>
           </div>
         </div>
-        <div className="basis-full md:basis-1/3">Side panel</div>
+        <div className="basis-full md:basis-1/3">
+          <ContactCard />
+        </div>
       </div>
     </>
   )

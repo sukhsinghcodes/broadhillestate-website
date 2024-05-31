@@ -44,7 +44,7 @@ export function Navigation() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="main-nav-bar fixed z-50 top-0 w-full transition-all p-4 md:py-6 md:px-10 bg-black">
+    <header className="main-nav-bar fixed z-50 top-0 w-full transition-all p-4 md:py-6 md:px-8 bg-black">
       <nav className="flex justify-between items-center gap-8">
         <Link href="/" className="text-2xl">
           Broadhill Estate
