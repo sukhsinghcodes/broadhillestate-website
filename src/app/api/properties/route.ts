@@ -5,10 +5,11 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const location = searchParams.get('location')
   const transactionType = searchParams.get('transactionType')
+  const propertyType = searchParams.get('propertyType')
   const minPrice = searchParams.get('minPrice')
   const maxPrice = searchParams.get('maxPrice')
   const minBeds = searchParams.get('minBeds')
-  const availibility = searchParams.get('availibility')
+  const availability = searchParams.get('availabilityFilter')
 
   const query = {} as Record<string, any>
 
@@ -18,6 +19,10 @@ export async function GET(request: Request) {
 
   if (transactionType) {
     query['fields.transactionType'] = transactionType
+  }
+
+  if (propertyType) {
+    query['fields.propertyType'] = propertyType
   }
 
   if (minPrice) {
@@ -32,9 +37,11 @@ export async function GET(request: Request) {
     query['fields.numberOfBedrooms[gte]'] = minBeds
   }
 
-  if (availibility) {
-    query['fields.status'] = availibility
+  if (availability) {
+    query['fields.status'] = availability
   }
+
+  query['fields.isVisibleOnWebsite'] = true
 
   try {
     const properties = await client.getEntries<TypeProperty>({

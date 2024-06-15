@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { Property } from '../types'
 
 export function usePropertiesSearch(filterParams: string) {
+  console.log('filterParams', filterParams)
   return useQuery<Property[]>({
     queryKey: ['property-search', filterParams],
     queryFn: async () => {
