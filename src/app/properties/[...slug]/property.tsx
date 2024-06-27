@@ -25,6 +25,7 @@ import Image from 'next/image'
 import { ContactCard } from '@/app/components/contact-card'
 import { Button } from '@/components/ui/button'
 import { Gallery } from '@/app/components/gallery'
+import { cn } from '@/lib/utils'
 
 export type PropertyProps = {
   id: string
@@ -63,7 +64,12 @@ export function Property({ id }: PropertyProps) {
             {data.gallery?.map((image) => (
               <CarouselItem
                 key={image.sys.id}
-                className="md:basis-1/2 h-[300px] md:h-[600px] p-0"
+                className={cn(
+                  'h-[300px] md:h-[600px] p-0',
+                  data.gallery && data.gallery.length > 1
+                    ? 'md:basis-1/2'
+                    : undefined
+                )}
               >
                 <Image
                   src={`https:${image.fields.file?.url?.toString()}?fit=thumb&w=1000&h=600`}
@@ -82,7 +88,10 @@ export function Property({ id }: PropertyProps) {
           <Gallery
             Trigger={
               <Button className="shadow shadow-black/40" variant="secondary">
-                <RulerIcon className="mr-2" /> Floor Plan
+                <div className="flex gap-2 items-center">
+                  <RulerIcon />
+                  <div className="hidden md:block">Floor Plan</div>
+                </div>
               </Button>
             }
             images={data.floorplan || []}
@@ -90,7 +99,10 @@ export function Property({ id }: PropertyProps) {
           <Gallery
             Trigger={
               <Button className="shadow shadow-black/40" variant="secondary">
-                <BarChart2Icon className="mr-2" /> EPC
+                <div className="flex gap-2 items-center">
+                  <BarChart2Icon />
+                  <div className="hidden md:block">EPC</div>
+                </div>
               </Button>
             }
             images={data.epc ? [data.epc] : []}
@@ -100,7 +112,10 @@ export function Property({ id }: PropertyProps) {
           <Gallery
             Trigger={
               <Button className="shadow shadow-black/40" variant="secondary">
-                <ImageIcon className="mr-2" /> View gallery
+                <div className="flex gap-2 items-center">
+                  <ImageIcon />
+                  <div className="hidden md:block">View gallery</div>
+                </div>
               </Button>
             }
             images={data.gallery || []}
@@ -119,7 +134,7 @@ export function Property({ id }: PropertyProps) {
               )}
             </H3>
             <H2 className="text-neutral-400">{pound.format(data.price)}</H2>
-            <div className="flex flex-col md:flex-row gap-6 md:items-center">
+            <div className="flex flex-col md:flex-row gap-x-6 gap-y-2 md:items-center">
               <div className="flex gap-2 items-center">
                 <div>
                   <BedIcon className="text-neutral-300 stroke-1" size={20} />
