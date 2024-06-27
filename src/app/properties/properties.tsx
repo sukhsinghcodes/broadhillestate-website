@@ -88,7 +88,8 @@ export function Properties() {
     setMaxPrice(values.maxPrice)
     setMinBeds(values.minBeds)
     setAvailabilityFilter(values.availabilityFilter)
-  }, [searchParams])
+    handleSearch()
+  }, [handleSearch, searchParams])
 
   const { data, isLoading, error } = usePropertiesSearch(filterParams)
 
