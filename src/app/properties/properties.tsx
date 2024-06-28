@@ -71,6 +71,10 @@ export function Properties() {
   ])
 
   useEffect(() => {
+    handleSearch()
+  }, [handleSearch])
+
+  useEffect(() => {
     const params = new URLSearchParams(searchParams)
     const values = {
       location: params.get('location') || '',
@@ -88,8 +92,7 @@ export function Properties() {
     setMaxPrice(values.maxPrice)
     setMinBeds(values.minBeds)
     setAvailabilityFilter(values.availabilityFilter)
-    handleSearch()
-  }, [handleSearch, searchParams])
+  }, [searchParams])
 
   const { data, isLoading, error } = usePropertiesSearch(filterParams)
 
