@@ -15,6 +15,7 @@ export interface TypePropertyFields {
   gallery?: Asset[]
   floorplan?: Asset[]
   epc?: Asset
+  isVisibleOnWebsite: EntryFields.Boolean
 }
 
 export type TypeProperty = EntrySkeletonType<TypePropertyFields>

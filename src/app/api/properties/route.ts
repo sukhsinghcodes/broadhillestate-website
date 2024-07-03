@@ -59,6 +59,7 @@ export async function GET(request: Request) {
         'fields.price',
         'fields.location',
         'fields.gallery',
+        'fields.isVisibleOnWebsite',
       ],
       ...query,
     })

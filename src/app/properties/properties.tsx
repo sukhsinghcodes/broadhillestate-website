@@ -199,14 +199,11 @@ export function Properties() {
           onValueChange={setAvailabilityFilter}
           transactionType={transactionType}
         />
-        <Button size="sm" onClick={handleSearch}>
-          Search
-        </Button>
       </div>
       {isLoading ? (
         <Spinner />
       ) : data && data.length > 0 ? (
-        data.map((item) => <PropertyListItem key={item.name} property={item} />)
+        data.map((item) => <PropertyListItem key={item.id} property={item} />)
       ) : (
         <H4>No results</H4>
       )}
