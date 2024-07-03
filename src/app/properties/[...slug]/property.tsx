@@ -85,41 +85,47 @@ export function Property({ id }: PropertyProps) {
           <CarouselNext />
         </Carousel>
         <div className="flex gap-4 items-center absolute bottom-4 left-4">
-          <Gallery
-            Trigger={
-              <Button className="shadow shadow-black/40" variant="secondary">
-                <div className="flex gap-2 items-center">
-                  <RulerIcon />
-                  <div className="hidden md:block">Floor Plan</div>
-                </div>
-              </Button>
-            }
-            images={data.floorplan || []}
-          />
-          <Gallery
-            Trigger={
-              <Button className="shadow shadow-black/40" variant="secondary">
-                <div className="flex gap-2 items-center">
-                  <BarChart2Icon />
-                  <div className="hidden md:block">EPC</div>
-                </div>
-              </Button>
-            }
-            images={data.epc ? [data.epc] : []}
-          />
+          {data.floorplan && data.floorplan.length > 0 && (
+            <Gallery
+              Trigger={
+                <Button className="shadow shadow-black/40" variant="secondary">
+                  <div className="flex gap-2 items-center">
+                    <RulerIcon />
+                    <div className="hidden md:block">Floor Plan</div>
+                  </div>
+                </Button>
+              }
+              images={data.floorplan}
+            />
+          )}
+          {data.epc && (
+            <Gallery
+              Trigger={
+                <Button className="shadow shadow-black/40" variant="secondary">
+                  <div className="flex gap-2 items-center">
+                    <BarChart2Icon />
+                    <div className="hidden md:block">EPC</div>
+                  </div>
+                </Button>
+              }
+              images={[data.epc]}
+            />
+          )}
         </div>
         <div className="flex gap-4 items-center absolute bottom-4 right-4">
-          <Gallery
-            Trigger={
-              <Button className="shadow shadow-black/40" variant="secondary">
-                <div className="flex gap-2 items-center">
-                  <ImageIcon />
-                  <div className="hidden md:block">View gallery</div>
-                </div>
-              </Button>
-            }
-            images={data.gallery || []}
-          />
+          {data.gallery && (
+            <Gallery
+              Trigger={
+                <Button className="shadow shadow-black/40" variant="secondary">
+                  <div className="flex gap-2 items-center">
+                    <ImageIcon />
+                    <div className="hidden md:block">View gallery</div>
+                  </div>
+                </Button>
+              }
+              images={data.gallery}
+            />
+          )}
         </div>
       </div>
       <div className="flex flex-col md:flex-row gap-8 w-full max-w-screen-2xl p-4 md:py-12">
@@ -133,7 +139,9 @@ export function Property({ id }: PropertyProps) {
                 data.status as PropertyStatus
               )}
             </H3>
-            <H2 className="text-neutral-400">{pound.format(data.price)}</H2>
+            <H2 className="text-neutral-400">{`${pound.format(data.price)}${
+              data.transactionType === TransactionType.Lettings ? ' PCM' : ''
+            }`}</H2>
             <div className="flex flex-col md:flex-row gap-x-6 gap-y-2 md:items-center">
               <div className="flex gap-2 items-center">
                 <div>
