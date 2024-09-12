@@ -72,7 +72,7 @@ export function Property({ id }: PropertyProps) {
                 )}
               >
                 <Image
-                  src={`https:${image.fields.file?.url?.toString()}?fit=thumb&w=1000&h=600`}
+                  src={`https:${image.fields.file?.url?.toString()}?fit=thumb&w=1000&h=600&fm=jpg&q=80`}
                   alt={`${image.fields.title}`}
                   width={1000}
                   height={600}
