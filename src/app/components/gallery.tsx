@@ -30,7 +30,7 @@ export function Gallery({ Trigger, images }: GalleryProps) {
               <CarouselItem key={image.sys.id} className="h-screen pb-12">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`https:${image.fields.file?.url?.toString()}?fm=jpg&q=80&w=2000`}
+                  src={`https:${image.fields.file?.url?.toString()}?fm=avif&w=2000`}
                   alt={`${image.fields.title}`}
                   className="w-full h-full object-contain"
                 />
