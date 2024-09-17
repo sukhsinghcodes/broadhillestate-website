@@ -50,7 +50,7 @@ export function PropertyListItem({
             })}
           </div>
           <div className="flex justify-between gap-4 pt-3">
-            <div className="flex flex-col md:flex-row gap-4 items-center">
+            <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
               <Badge variant="secondary" className="uppercase">
                 {getAvailabilityLabel(
                   transactionType as TransactionType,
