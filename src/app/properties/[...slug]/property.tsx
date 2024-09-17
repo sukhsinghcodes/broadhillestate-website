@@ -169,8 +169,8 @@ export function Property({ id }: PropertyProps) {
           <div className="mt-2">
             <H3 className="font-bold text-neutral-400">Property Features</H3>
             <ul className="grid grid-rows-4 grid-flow-col m-0 mt-4">
-              {data.features.map((feature) => (
-                <li key={feature} className="ml-6">
+              {data.features.map((feature, index) => (
+                <li key={index} className="ml-6">
                   {feature}
                 </li>
               ))}
