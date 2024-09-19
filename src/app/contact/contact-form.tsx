@@ -143,9 +143,20 @@ export function ContactForm({ onSuccess }: ContactFormProps) {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      <SelectItem value="viewing">Arrange a viewing</SelectItem>
-                      <SelectItem value="valuation">
-                        Book a valuation
+                      <SelectItem value="Looking to rent (tenant)">
+                        Looking to rent (tenant)
+                      </SelectItem>
+                      <SelectItem value="Looking to rent (landlord)">
+                        Looking to rent (landlord)
+                      </SelectItem>
+                      <SelectItem value="Looking to sell (book a valuation)">
+                        Looking to sell (book a valuation)
+                      </SelectItem>
+                      <SelectItem value="Looking to buy">
+                        Looking to buy a property
+                      </SelectItem>
+                      <SelectItem value="General enquiries">
+                        General enquiries
                       </SelectItem>
                     </SelectGroup>
                   </SelectContent>

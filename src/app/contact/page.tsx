@@ -11,7 +11,7 @@ export default function Contact() {
   const [isSuccess, setIsSuccess] = useState(false)
 
   return (
-    <div className="flex flex-col md:flex-row items-center grow p-4 md:p-8 gap-8">
+    <div className="flex flex-col md:flex-row items-center grow p-4 md:p-8 gap-8 container max-w-screen-lg">
       <div className="w-full basis-1/2">
         <H1 className="mb-6">Contact</H1>
         <p>
