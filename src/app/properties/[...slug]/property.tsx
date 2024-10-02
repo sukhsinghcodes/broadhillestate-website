@@ -12,6 +12,7 @@ import {
   RulerIcon,
   BarChart2Icon,
   ImageIcon,
+  VideoIcon,
 } from 'lucide-react'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import {
@@ -26,6 +27,8 @@ import { ContactCard } from '@/app/components/contact-card'
 import { Button } from '@/components/ui/button'
 import { Gallery } from '@/app/components/gallery'
 import { cn } from '@/lib/utils'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { YoutubePlayer } from '@/app/components/youtube-player'
 
 export type PropertyProps = {
   id: string
@@ -113,13 +116,33 @@ export function Property({ id }: PropertyProps) {
           )}
         </div>
         <div className="flex gap-4 items-center absolute bottom-4 right-4">
+          {data.youtubeVideoId && (
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="shadow shadow-black/40" variant="secondary">
+                  <div className="flex gap-2 items-center">
+                    <VideoIcon />
+                    <div className="hidden md:block">Video</div>
+                  </div>
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="min-w-full h-full">
+                <div className="flex flex-col justify-center">
+                  <YoutubePlayer
+                    title={data.name}
+                    videoId={data.youtubeVideoId}
+                  />
+                </div>
+              </DialogContent>
+            </Dialog>
+          )}
           {data.gallery && (
             <Gallery
               Trigger={
                 <Button className="shadow shadow-black/40" variant="secondary">
                   <div className="flex gap-2 items-center">
                     <ImageIcon />
-                    <div className="hidden md:block">View gallery</div>
+                    <div className="hidden md:block">Gallery</div>
                   </div>
                 </Button>
               }

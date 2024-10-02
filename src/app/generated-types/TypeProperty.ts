@@ -1,4 +1,4 @@
-import type { Asset, EntryFields, EntrySkeletonType } from 'contentful'
+import type { Asset, EntrySkeletonType, EntryFields } from 'contentful'
 
 export interface TypePropertyFields {
   name: EntryFields.Symbol
@@ -16,6 +16,7 @@ export interface TypePropertyFields {
   floorplan?: Asset[]
   epc?: Asset
   isVisibleOnWebsite: EntryFields.Boolean
+  youtubeVideoId?: EntryFields.Symbol
 }
 
 export type TypeProperty = EntrySkeletonType<TypePropertyFields>
