@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { getAvailabilityLabel, getSlug, pound } from '../utils'
 import { BathIcon, BedIcon, HomeIcon, SofaIcon } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { documentToPlainTextString } from '@contentful/rich-text-plain-text-renderer'
 import Link from 'next/link'
 
 export type PropertyListItemProps = {
@@ -26,6 +26,10 @@ export function PropertyListItem({
     numberOfReceptions,
   },
 }: PropertyListItemProps) {
+
+  const descPlainText = documentToPlainTextString(description)
+  const descText = descPlainText.length > 150 ? `${descPlainText.slice(0, 150)}...` : descPlainText
+
   return (
     <Link className="w-full" href={`/properties/${id}/${getSlug(name)}`}>
       <div className="w-full flex flex-col md:flex-row bg-neutral-700 shadow-xl">
@@ -44,10 +48,7 @@ export function PropertyListItem({
             transactionType === TransactionType.Lettings ? ' PCM' : ''
           }`}</h4>
           <div className="text-sm">
-            {documentToReactComponents(description, {
-              renderText: (text) =>
-                text.length > 150 ? `${text.slice(0, 150)}...` : text,
-            })}
+            {descText}
           </div>
           <div className="flex justify-between gap-4 pt-3">
             <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">

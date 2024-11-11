@@ -46,8 +46,11 @@ export async function GET(request: Request) {
   try {
     const properties = await client.getEntries<TypeProperty>({
       content_type: 'property',
+      order: ['-sys.updatedAt', 'fields.order'] as any[],
       select: [
         'sys.id',
+        'sys.createdAt',
+        'sys.updatedAt',
         'fields.name',
         'fields.description',
         'fields.numberOfBedrooms',
@@ -60,12 +63,18 @@ export async function GET(request: Request) {
         'fields.location',
         'fields.gallery',
         'fields.isVisibleOnWebsite',
+        'fields.order',
       ],
       ...query,
     })
 
     return Response.json(
-      properties.items.map((item) => ({ id: item.sys.id, ...item.fields }))
+      properties.items.map((item) => ({
+        id: item.sys.id,
+        createdAt: item.sys.createdAt,
+        updatedAt: item.sys.updatedAt,
+        ...item.fields,
+      }))
     )
   } catch (err) {
     console.error('error', err)

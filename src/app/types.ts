@@ -41,6 +41,8 @@ export const LettingsStatusLabels = {
 
 export type Property = TypePropertyFields & {
   id: string
+  createdAt: string
+  updatedAt: string
 }
 
 export type EmailForm = {
