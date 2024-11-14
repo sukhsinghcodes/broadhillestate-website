@@ -203,8 +203,17 @@ export function Property({ id }: PropertyProps) {
             </div>
           </div>
         </div>
-        <div className="basis-full md:basis-1/3">
+        <div className="basis-full md:basis-1/3 flex flex-col gap-4">
           <ContactCard />
+          <div className="rounded overflow-hidden">
+            <iframe
+              width="100%"
+              height="300"
+              referrerPolicy="no-referrer-when-downgrade"
+              src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY}&q=${data.location.lat},${data.location.lon}&zoom=16`}
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
       </div>
     </>
