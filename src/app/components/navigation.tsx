@@ -51,16 +51,13 @@ export function Navigation() {
         </Link>
         {isMobile ? (
           <div className="flex gap-2">
-            <Button variant="ghost" size="icon">
-              <SearchIcon />
-            </Button>
             <Sheet open={open} onOpenChange={(toggle) => setOpen(toggle)}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" onClick={() => setOpen((prev) => !prev)}>
                   <MenuIcon />
                 </Button>
               </SheetTrigger>
-              <SheetContent>
+              <SheetContent className="pl-2">
                 <ul className="flex flex-col gap-2 list-none m-0 [&>li]:m-0">
                   <li>
                     <Link href="/">
@@ -92,14 +89,24 @@ export function Navigation() {
                   </li>
                   <li>
                     <Link href="https://www.instagram.com/broadhillestate/" target="_blank">
-                      <Button variant="ghost" size="icon" onClick={() => setOpen(false)}>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => setOpen(false)}
+                        className="pl-3"
+                      >
                         <InstagramIcon className="stroke-1" />
                       </Button>
                     </Link>
                   </li>
                   <li>
                     <Link href="https://www.facebook.com/broadhillestate" target="_blank">
-                      <Button variant="ghost" size="icon" onClick={() => setOpen(false)}>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => setOpen(false)}
+                        className="pl-3"
+                      >
                         <FacebookIcon className="stroke-1" />
                       </Button>
                     </Link>

@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { H1, H2, H3 } from '@/app/components/typography'
-import { useProperty } from '../queries'
-import { Spinner } from '@/app/components/spinner'
-import { getAvailabilityLabel, pound } from '@/app/utils'
-import { PropertyStatus, TransactionType } from '@/app/types'
+import { H1, H2, H3 } from '@/app/components/typography';
+import { useProperty } from '../queries';
+import { Spinner } from '@/app/components/spinner';
+import { getAvailabilityLabel, pound } from '@/app/utils';
+import { PropertyStatus, TransactionType } from '@/app/types';
 import {
   BedIcon,
   SofaIcon,
@@ -13,32 +13,32 @@ import {
   BarChart2Icon,
   ImageIcon,
   VideoIcon,
-} from 'lucide-react'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+} from 'lucide-react';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
-} from '@/components/ui/carousel'
-import Image from 'next/image'
-import { ContactCard } from '@/app/components/contact-card'
-import { Button } from '@/components/ui/button'
-import { Gallery } from '@/app/components/gallery'
-import { cn } from '@/lib/utils'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
-import { YoutubePlayer } from '@/app/components/youtube-player'
+} from '@/components/ui/carousel';
+import Image from 'next/image';
+import { ContactCard } from '@/app/components/contact-card';
+import { Button } from '@/components/ui/button';
+import { Gallery } from '@/app/components/gallery';
+import { cn } from '@/lib/utils';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { YoutubePlayer } from '@/app/components/youtube-player';
 
 export type PropertyProps = {
-  id: string
-}
+  id: string;
+};
 
 export function Property({ id }: PropertyProps) {
-  const { data, isLoading, error } = useProperty(id)
+  const { data, isLoading, error } = useProperty(id);
 
   if (error) {
-    return <H3 className="text-red-600">An unknown error occured</H3>
+    return <H3 className="text-red-600">An unknown error occured</H3>;
   }
 
   if (isLoading) {
@@ -46,11 +46,11 @@ export function Property({ id }: PropertyProps) {
       <div className="absolute z-50 top-0 left-0 w-full h-full flex justify-center items-center pb-48">
         <Spinner />
       </div>
-    )
+    );
   }
 
   if (!data) {
-    return <H3 className="text-red-600">Property not found</H3>
+    return <H3 className="text-red-600">Property not found</H3>;
   }
 
   return (
@@ -69,9 +69,7 @@ export function Property({ id }: PropertyProps) {
                 key={image.sys.id}
                 className={cn(
                   'h-[300px] md:h-[600px] p-0',
-                  data.gallery && data.gallery.length > 1
-                    ? 'md:basis-1/2'
-                    : undefined
+                  data.gallery && data.gallery.length > 1 ? 'md:basis-1/2' : undefined
                 )}
               >
                 <Image
@@ -128,10 +126,7 @@ export function Property({ id }: PropertyProps) {
               </DialogTrigger>
               <DialogContent className="min-w-full h-full">
                 <div className="flex flex-col justify-center">
-                  <YoutubePlayer
-                    title={data.name}
-                    videoId={data.youtubeVideoId}
-                  />
+                  <YoutubePlayer title={data.name} videoId={data.youtubeVideoId} />
                 </div>
               </DialogContent>
             </Dialog>
@@ -213,5 +208,5 @@ export function Property({ id }: PropertyProps) {
         </div>
       </div>
     </>
-  )
+  );
 }

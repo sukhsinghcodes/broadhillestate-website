@@ -1,10 +1,16 @@
 import { Suspense } from 'react';
 import { Properties } from './properties';
-import { H2 } from '../components/typography';
+import { Spinner } from '../components/spinner';
 
 export default function PropertiesPage() {
   return (
-    <Suspense fallback={<H2>Page failed to load.</H2>}>
+    <Suspense
+      fallback={
+        <div className="flex items-center justify-center p-8">
+          <Spinner />
+        </div>
+      }
+    >
       <Properties />
     </Suspense>
   );
