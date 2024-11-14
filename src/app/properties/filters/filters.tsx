@@ -25,6 +25,7 @@ export function Filters({ setFilterParams }: FilterProps) {
   const [minBeds, setMinBeds] = useState<string>('');
   const [availabilityFilter, setAvailabilityFilter] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
+
   useEffect(() => {
     const params = new URLSearchParams();
     if (location) params.set('location', location);

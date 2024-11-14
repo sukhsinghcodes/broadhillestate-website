@@ -1,22 +1,23 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import { Navigation } from './components/navigation'
-import { Footer } from './components/footer'
-import { cn } from '@/lib/utils'
-import Providers from './providers'
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { Navigation } from './components/navigation';
+import { Footer } from './components/footer';
+import { cn } from '@/lib/utils';
+import Providers from './providers';
+import { Analytics } from '@vercel/analytics/react';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Broadhill Estate',
   description: 'Rent, buy or sell your property in London',
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" className="dark">
@@ -28,7 +29,8 @@ export default function RootLayout({
           </main>
           <Footer />
         </Providers>
+        <Analytics />
       </body>
     </html>
-  )
+  );
 }

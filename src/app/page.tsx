@@ -1,8 +1,8 @@
-import Image from 'next/image'
-import bgImage from '@/app/assets/images/st-pauls-bg.jpg'
-import { Button } from '@/components/ui/button'
-import { H1, H2 } from './components/typography'
-import Link from 'next/link'
+import Image from 'next/image';
+import bgImage from '@/app/assets/images/st-pauls-bg.jpg';
+import { Button } from '@/components/ui/button';
+import { H1, H2 } from './components/typography';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -25,17 +25,13 @@ export default function Home() {
             Residential, Commercial, Sales, Lettings and Property management
           </H2>
           <div className="flex gap-4 flex-wrap">
-            <Link href="/properties">
+            <Link href="/properties?transactionType=Sales">
               <Button size="lg" className="drop-shadow-md md:drop-shadow-2xl">
                 Find a property
               </Button>
             </Link>
             <Link href="/contact">
-              <Button
-                variant="secondary"
-                size="lg"
-                className=" drop-shadow-md md:drop-shadow-2xl"
-              >
+              <Button variant="secondary" size="lg" className=" drop-shadow-md md:drop-shadow-2xl">
                 Book a free valuation
               </Button>
             </Link>
@@ -43,5 +39,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }

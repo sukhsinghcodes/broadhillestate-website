@@ -1,11 +1,11 @@
-import logoSrc from '../assets/images/bh-logo.svg'
-import rmLogoSrc from '../assets/images/RM_Logo_NoStrap_White.png'
-import Image from 'next/image'
-import { Copyright } from './copyright'
-import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon } from 'lucide-react'
-import Link from 'next/link'
-import { H4 } from './typography'
-import { Button } from '@/components/ui/button'
+import logoSrc from '../assets/images/bh-logo.svg';
+import rmLogoSrc from '../assets/images/RM_Logo_NoStrap_White.png';
+import Image from 'next/image';
+import { Copyright } from './copyright';
+import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon } from 'lucide-react';
+import Link from 'next/link';
+import { H4 } from './typography';
+import { Button } from '@/components/ui/button';
 
 export function Footer() {
   return (
@@ -50,10 +50,7 @@ export function Footer() {
               <label>
                 <MailIcon size={18} />
               </label>
-              <Link
-                className="text-primary text-sm"
-                href="mailto:info@broadhillestate.com"
-              >
+              <Link className="text-primary text-sm" href="mailto:info@broadhillestate.com">
                 info@broadhillestate.com
               </Link>
             </div>
@@ -73,14 +70,14 @@ export function Footer() {
       </div>
       <div className="flex flex-col gap-4 items-center sm:items-start">
         <H4 className="text-neutral-300">Find us on</H4>
-        <Link href="https://www.rightmove.co.uk/estate-agents/agent/Broadhill/Ilford-82863.html">
+        <Link
+          href="https://www.rightmove.co.uk/estate-agents/agent/Broadhill/Ilford-82863.html"
+          target="_blank"
+        >
           <Image className="w-[140px]" src={rmLogoSrc} alt="Rightmove" />
         </Link>
         <div className="flex gap-4">
-          <Link
-            href="https://www.instagram.com/broadhillestate/"
-            target="_blank"
-          >
+          <Link href="https://www.instagram.com/broadhillestate/" target="_blank">
             <Button variant="ghost" size="icon">
               <InstagramIcon className="stroke-1" />
             </Button>
@@ -93,5 +90,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

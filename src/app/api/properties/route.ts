@@ -1,52 +1,52 @@
-import { TypeProperty } from '@/app/generated-types'
-import { client } from '../client'
+import { TypeProperty } from '@/app/generated-types';
+import { client } from '../client';
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url)
-  const location = searchParams.get('location')
-  const transactionType = searchParams.get('transactionType')
-  const propertyType = searchParams.get('propertyType')
-  const minPrice = searchParams.get('minPrice')
-  const maxPrice = searchParams.get('maxPrice')
-  const minBeds = searchParams.get('minBeds')
-  const availability = searchParams.get('availabilityFilter')
+  const { searchParams } = new URL(request.url);
+  const location = searchParams.get('location');
+  const transactionType = searchParams.get('transactionType');
+  const propertyType = searchParams.get('propertyType');
+  const minPrice = searchParams.get('minPrice');
+  const maxPrice = searchParams.get('maxPrice');
+  const minBeds = searchParams.get('minBeds');
+  const availability = searchParams.get('availabilityFilter');
 
-  const query = {} as Record<string, any>
+  const query = {} as Record<string, any>;
 
   if (location) {
     // TODO: turn location into longitude and latitude
   }
 
   if (transactionType) {
-    query['fields.transactionType'] = transactionType
+    query['fields.transactionType'] = transactionType;
   }
 
   if (propertyType) {
-    query['fields.propertyType'] = propertyType
+    query['fields.propertyType'] = propertyType;
   }
 
   if (minPrice) {
-    query['fields.price[gte]'] = minPrice
+    query['fields.price[gte]'] = minPrice;
   }
 
   if (maxPrice) {
-    query['fields.price[lte]'] = maxPrice
+    query['fields.price[lte]'] = maxPrice;
   }
 
   if (minBeds) {
-    query['fields.numberOfBedrooms[gte]'] = minBeds
+    query['fields.numberOfBedrooms[gte]'] = minBeds;
   }
 
   if (availability) {
-    query['fields.status'] = availability
+    query['fields.status'] = availability;
   }
 
-  query['fields.isVisibleOnWebsite'] = true
+  query['fields.isVisibleOnWebsite'] = true;
 
   try {
     const properties = await client.getEntries<TypeProperty>({
       content_type: 'property',
-      order: ['-sys.updatedAt', 'fields.order'] as any[],
+      order: ['fields.featured', 'fields.order', '-sys.createdAt'] as any[],
       select: [
         'sys.id',
         'sys.createdAt',
@@ -64,9 +64,10 @@ export async function GET(request: Request) {
         'fields.gallery',
         'fields.isVisibleOnWebsite',
         'fields.order',
+        'fields.featured',
       ],
       ...query,
-    })
+    });
 
     return Response.json(
       properties.items.map((item) => ({
@@ -75,9 +76,9 @@ export async function GET(request: Request) {
         updatedAt: item.sys.updatedAt,
         ...item.fields,
       }))
-    )
+    );
   } catch (err) {
-    console.error('error', err)
-    return Response.json({ error: err }, { status: 500 })
+    console.error('error', err);
+    return Response.json({ error: err }, { status: 500 });
   }
 }
