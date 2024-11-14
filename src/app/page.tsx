@@ -31,7 +31,7 @@ export default function Home() {
             <H4 className="font-normal text-sm md:text-base">
               Search properties for sale and to rent
             </H4>
-            <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex items-center gap-2 flex-wrap md:flex-nowrap">
               <Input placeholder="e.g. Redbridge, E11 or Wanstead" />
               <Button asChild>
                 <Link href={`/properties?transactionType=${TransactionType.Sales}`}>For sale</Link>
