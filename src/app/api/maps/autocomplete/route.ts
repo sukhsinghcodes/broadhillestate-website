@@ -1,4 +1,4 @@
-import { client } from '../client';
+import { mapsClient } from '@/app/libs/google-maps-client';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -15,7 +15,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    const resp = await client.placeAutocomplete({
+    const resp = await mapsClient.placeAutocomplete({
       params: {
         input,
         key,

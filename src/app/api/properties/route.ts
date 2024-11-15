@@ -1,6 +1,6 @@
 import { TypeProperty } from '@/app/generated-types';
-import { client } from '../client';
-import { client as mapsClient } from '../maps/client';
+import { contentfulClient } from '@/app/libs/contenful-client';
+import { mapsClient } from '@/app/libs/google-maps-client';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -89,7 +89,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    const properties = await client.getEntries<TypeProperty>({
+    const properties = await contentfulClient.getEntries<TypeProperty>({
       content_type: 'property',
       order,
       select: [

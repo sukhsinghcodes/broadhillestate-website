@@ -1,10 +1,6 @@
-'use client';
-
 import { H1, H2, H3 } from '@/app/components/typography';
-import { useProperty } from '../queries';
-import { Spinner } from '@/app/components/spinner';
 import { getAvailabilityLabel, pound } from '@/app/utils';
-import { PropertyStatus, TransactionType } from '@/app/types';
+import { PropertyStatus, TransactionType, Property as PropertyType } from '@/app/types';
 import {
   BedIcon,
   SofaIcon,
@@ -29,28 +25,35 @@ import { Gallery } from '@/app/components/gallery';
 import { cn } from '@/lib/utils';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { YoutubePlayer } from '@/app/components/youtube-player';
+import { TypeProperty } from '@/app/generated-types';
+import { contentfulClient } from '@/app/libs/contenful-client';
 
 export type PropertyProps = {
   id: string;
 };
 
-export function Property({ id }: PropertyProps) {
-  const { data, isLoading, error } = useProperty(id);
-
-  if (error) {
-    return <H3 className="text-red-600">An unknown error occured</H3>;
+export async function Property({ id }: PropertyProps) {
+  let data: PropertyType | null = null;
+  let error = false;
+  try {
+    const property = await contentfulClient.getEntry<TypeProperty>(id);
+    data = {
+      id: property.sys.id,
+      createdAt: property.sys.createdAt,
+      updatedAt: property.sys.updatedAt,
+      ...property.fields,
+    };
+  } catch (err) {
+    console.error(err);
+    error = true;
   }
 
-  if (isLoading) {
-    return (
-      <div className="absolute z-50 top-0 left-0 w-full h-full flex justify-center items-center pb-48">
-        <Spinner />
-      </div>
-    );
+  if (error) {
+    return <H3 className="text-red-600 mt-4">An unknown error occured</H3>;
   }
 
   if (!data) {
-    return <H3 className="text-red-600">Property not found</H3>;
+    return <H3 className="text-red-600 mt-4">Property not found</H3>;
   }
 
   return (
