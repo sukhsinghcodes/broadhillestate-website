@@ -46,18 +46,19 @@ export function LocationAutocomplete({ value, onChange }: LocationAutocompletePr
           )}
         >
           <CommandList>
-            {data?.predictions.map((item) => (
-              <CommandItem
-                key={item.place_id}
-                value={item.description}
-                onSelect={(currentValue) => {
-                  onChange(currentValue === value ? '' : currentValue);
-                  setShowResults(false);
-                }}
-              >
-                {item.description}
-              </CommandItem>
-            ))}
+            {data &&
+              data?.predictions.map((item) => (
+                <CommandItem
+                  key={item.place_id}
+                  value={item.description}
+                  onSelect={(currentValue) => {
+                    onChange(currentValue === value ? '' : currentValue);
+                    setShowResults(false);
+                  }}
+                >
+                  {item.description}
+                </CommandItem>
+              ))}
           </CommandList>
         </CommandGroup>
       </Command>
