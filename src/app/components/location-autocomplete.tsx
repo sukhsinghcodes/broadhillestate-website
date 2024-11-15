@@ -47,7 +47,7 @@ export function LocationAutocomplete({ value, onChange }: LocationAutocompletePr
         >
           <CommandList>
             {data &&
-              data?.predictions.map((item) => (
+              data.predictions.map((item) => (
                 <CommandItem
                   key={item.place_id}
                   value={item.description}
