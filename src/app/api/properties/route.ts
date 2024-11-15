@@ -1,5 +1,6 @@
 import { TypeProperty } from '@/app/generated-types';
 import { client } from '../client';
+import { client as mapsClient } from '../maps/client';
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -10,11 +11,40 @@ export async function GET(request: Request) {
   const maxPrice = searchParams.get('maxPrice');
   const minBeds = searchParams.get('minBeds');
   const availability = searchParams.get('availabilityFilter');
+  const sort = searchParams.get('sort');
 
   const query = {} as Record<string, any>;
 
   if (location) {
-    // TODO: turn location into longitude and latitude
+    const key = process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY;
+
+    if (!key) {
+      throw new Error('Google Maps API key is not set');
+    }
+
+    try {
+      const resp = await mapsClient.geocode({
+        params: {
+          key,
+          components: {
+            country: 'GB',
+          },
+          address: location,
+        },
+      });
+
+      if (resp.status === 200) {
+        const bounds = resp.data.results[0].geometry.bounds;
+
+        if (bounds) {
+          query[
+            'fields.location[within]'
+          ] = `${bounds.southwest.lat},${bounds.southwest.lng},${bounds.northeast.lat},${bounds.northeast.lng}`;
+        }
+      }
+    } catch (err) {
+      console.error('error', err);
+    }
   }
 
   if (transactionType) {
@@ -43,10 +73,25 @@ export async function GET(request: Request) {
 
   query['fields.isVisibleOnWebsite'] = true;
 
+  const order = ['fields.featured', 'fields.order', '-sys.createdAt'] as any[];
+
+  if (sort) {
+    switch (sort) {
+      case 'price-asc':
+        order.unshift('fields.price');
+        break;
+      case 'price-desc':
+        order.unshift('-fields.price');
+        break;
+      default:
+        break;
+    }
+  }
+
   try {
     const properties = await client.getEntries<TypeProperty>({
       content_type: 'property',
-      order: ['fields.featured', 'fields.order', '-sys.createdAt'] as any[],
+      order,
       select: [
         'sys.id',
         'sys.createdAt',

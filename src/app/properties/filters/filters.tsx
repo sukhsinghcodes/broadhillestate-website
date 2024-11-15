@@ -8,6 +8,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { pound } from '@/app/utils';
+import { LocationAutocomplete } from '@/app/components/location-autocomplete';
 
 type FilterProps = {
   setFilterParams: (params: string) => void;
@@ -74,7 +75,10 @@ export function Filters({ setFilterParams }: FilterProps) {
   }, [searchParams]);
 
   return (
-    <>
+    <div className="w-full flex flex-col gap-2">
+      <div className="md:hidden ">
+        <LocationAutocomplete value={location} onChange={setLocation} />
+      </div>
       <Collapsible className="w-full md:hidden" open={open} onOpenChange={setOpen}>
         <CollapsibleTrigger className="w-full">
           <div className="flex items-center justify-between w-full gap-2 p-2 bg-neutral-700">
@@ -94,25 +98,30 @@ export function Filters({ setFilterParams }: FilterProps) {
           </div>
         </CollapsibleTrigger>
         <CollapsibleContent className="pt-2">
-          <FiltersUI
-            location={location}
-            setLocation={setLocation}
-            transactionType={transactionType}
-            setTransactionType={setTransactionType}
-            minPrice={minPrice}
-            setMinPrice={setMinPrice}
-            maxPrice={maxPrice}
-            setMaxPrice={setMaxPrice}
-            minBeds={minBeds}
-            setMinBeds={setMinBeds}
-            propertyType={propertyType}
-            setPropertyType={setPropertyType}
-            availabilityFilter={availabilityFilter}
-            setAvailabilityFilter={setAvailabilityFilter}
-          />
+          <div className="flex flex-col md:flex-row gap-2 flex-wrap items-stretch md:items-center md:justify-center w-full">
+            <FiltersUI
+              location={location}
+              setLocation={setLocation}
+              transactionType={transactionType}
+              setTransactionType={setTransactionType}
+              minPrice={minPrice}
+              setMinPrice={setMinPrice}
+              maxPrice={maxPrice}
+              setMaxPrice={setMaxPrice}
+              minBeds={minBeds}
+              setMinBeds={setMinBeds}
+              propertyType={propertyType}
+              setPropertyType={setPropertyType}
+              availabilityFilter={availabilityFilter}
+              setAvailabilityFilter={setAvailabilityFilter}
+            />
+          </div>
         </CollapsibleContent>
       </Collapsible>
-      <div className="hidden md:block">
+      <div className="hidden md:flex gap-2 flex-wrap items-center justify-center w-full">
+        <div className="max-w-[300px] w-full">
+          <LocationAutocomplete value={location} onChange={setLocation} />
+        </div>
         <FiltersUI
           location={location}
           setLocation={setLocation}
@@ -130,6 +139,6 @@ export function Filters({ setFilterParams }: FilterProps) {
           setAvailabilityFilter={setAvailabilityFilter}
         />
       </div>
-    </>
+    </div>
   );
 }

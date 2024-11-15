@@ -53,7 +53,7 @@ export function FiltersUI({
   const maxPriceOptions = isSales ? maxPricesSales : maxPricesLettings;
 
   return (
-    <div className="flex flex-col md:flex-row gap-2 flex-wrap items-stretch md:items-center md:justify-center w-full">
+    <>
       <Input
         className="w-full md:w-[200px] hidden"
         placeholder="Location"
@@ -159,6 +159,6 @@ export function FiltersUI({
         onValueChange={setAvailabilityFilter}
         transactionType={transactionType}
       />
-    </div>
+    </>
   );
 }

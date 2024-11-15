@@ -3,9 +3,7 @@ import bgImage from '@/app/assets/images/st-pauls-bg.jpg';
 import { Button } from '@/components/ui/button';
 import { H1, H2, H3, H4 } from './components/typography';
 import Link from 'next/link';
-import { Card } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { TransactionType } from './types';
+import { SearchBox } from './search-box';
 
 export default function Home() {
   return (
@@ -27,22 +25,7 @@ export default function Home() {
           <H2 className="mb-8 drop-shadow-md md:drop-shadow-2xl">
             Residential, Commercial, Sales, Lettings and Property management
           </H2>
-          <Card className="p-4 mb-8 bg-neutral-800 flex flex-col gap-2">
-            <H4 className="font-normal text-sm md:text-base">
-              Search properties for sale and to rent
-            </H4>
-            <div className="flex items-center gap-2 flex-wrap md:flex-nowrap">
-              <Input placeholder="e.g. Redbridge, E11 or Wanstead" />
-              <Button asChild>
-                <Link href={`/properties?transactionType=${TransactionType.Sales}`}>For sale</Link>
-              </Button>
-              <Button asChild>
-                <Link href={`/properties?transactionType=${TransactionType.Lettings}`}>
-                  To rent
-                </Link>
-              </Button>
-            </div>
-          </Card>
+          <SearchBox />
           <Link href="/contact">
             <Button variant="outline" size="lg" className=" drop-shadow-md md:drop-shadow-2xl">
               Book a free valuation

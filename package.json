@@ -12,6 +12,7 @@
   "dependencies": {
     "@contentful/rich-text-plain-text-renderer": "^17.0.0",
     "@contentful/rich-text-react-renderer": "^15.21.1",
+    "@googlemaps/google-maps-services-js": "^3.4.0",
     "@hookform/resolvers": "^3.6.0",
     "@radix-ui/react-collapsible": "^1.1.1",
     "@radix-ui/react-dialog": "^1.0.5",
