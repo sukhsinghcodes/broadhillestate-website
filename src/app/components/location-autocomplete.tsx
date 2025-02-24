@@ -23,7 +23,12 @@ export function LocationAutocomplete({ value, onChange }: LocationAutocompletePr
   const { data } = useQuery<PlaceAutocompleteResponseData>({
     queryKey: ['maps', 'autocomplete', debouncedValue],
     queryFn: async () => {
-      return fetch(`/api/maps/autocomplete?input=${debouncedValue}`).then((res) => res.json());
+      try {
+        const response = await fetch(`/api/maps/autocomplete?input=${debouncedValue}`);
+        return response.json();
+      } catch (e) {
+        return null;
+      }
     },
     enabled: !!debouncedValue,
   });
