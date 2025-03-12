@@ -19,9 +19,12 @@ export default function Home() {
       </div>
       <div className="relative z-10 w-[90vw] md:w-[80vw] h-[600px] flex items-center">
         <div>
-          <H1 className="text-4xl md:text-6xl mb-4 drop-shadow-md md:drop-shadow-2xl">
+          <H1 className="text-4xl md:text-6xl drop-shadow-md md:drop-shadow-2xl">
             Broadhill Estate
           </H1>
+          <H3 className="mb-4 drop-shadow-md md:drop-shadow-2xl uppercase !text-lg text-yellow-500">
+            Award winning estate agent
+          </H3>
           <H2 className="mb-8 drop-shadow-md md:drop-shadow-2xl">
             Residential, Commercial, Sales, Lettings and Property management
           </H2>

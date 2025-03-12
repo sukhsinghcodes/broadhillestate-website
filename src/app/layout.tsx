@@ -10,8 +10,9 @@ import { Analytics } from '@vercel/analytics/react';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Broadhill Estate',
-  description: 'Rent, buy or sell your property in London',
+  title: 'Broadhill Estate - Award winning estate agent',
+  description:
+    'Broadhill Estate – Award-winning estate agents in London. Buy, sell, or rent properties with expert guidance and exceptional service. Find your perfect home today.',
 };
 
 export default function RootLayout({
