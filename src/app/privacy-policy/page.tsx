@@ -111,8 +111,8 @@ export default function PrivacyPolicy() {
           keep us informed if your personal data changes during your relationship with us. You can
           ask us to rectify or update your personal information at any time by email to{' '}
           <a href="mailto:info@broadhillestate.com">info@broadhillestate.com</a> FAO of The Data
-          Protection Officer or by writing to The Data Protection Officer, Broadhill Estate 11-12
-          Old Bond Street London W1S 4PN.
+          Protection Officer or by writing to The Data Protection Officer, Broadhill Estate 14a
+          Milford House, 7 Queen Anne Street, London W1G 9HN.
         </p>
 
         <H3>How we use your personal data</H3>

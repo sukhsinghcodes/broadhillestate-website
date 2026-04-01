@@ -21,11 +21,13 @@ export function Footer() {
         <div className="text-center sm:text-left">
           <H4 className="mb-1">Head office</H4>
           <p className="text-sm text-neutral-300 leading-6">
-            11-12 Old Bond Street
+            14a Milford House
+            <br />
+            7 Queen Anne Street
             <br />
             London
             <br />
-            W1S 4PN
+            W1G 9HN
             <br />
           </p>
         </div>
